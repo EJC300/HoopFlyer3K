@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class GameController : MonoBehaviour
@@ -10,6 +13,13 @@ public class GameController : MonoBehaviour
     [SerializeField] private PlayerController player;
     [SerializeField] private CameraLookAtCursor cameraLookAtCursor;
     [SerializeField] private Transform reticule;
+   
+    public static GameController instance;
+    private float timer;
+    [SerializeField] private float seconds;
+
+    public float Timer { get => timer; set => timer = value; }
+
     private Vector3 GetMouseWorldPosition()
     {
         return  Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -24,11 +34,38 @@ public class GameController : MonoBehaviour
         return player.transform.InverseTransformDirection( position);
     }
 
-     
+  
     private void ReticuleMovement()
     {
         float viewDistanceMultiplier = 2f;
         reticule.localPosition  = player.transform.localPosition + new Vector3(GetMouseWorldPosition().x, GetMouseWorldPosition().y, viewDistance * viewDistanceMultiplier);
+    }
+    void CountDown()
+    {
+
+        if(timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            timer = 0;
+            ResetGame();
+          
+        }
+    }
+    private void ResetGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    private void Awake()
+    {
+        timer = seconds;
+        if (instance == null)
+        {
+            instance = this;
+        }
+      
     }
     private void Start()
     {
@@ -40,6 +77,8 @@ public class GameController : MonoBehaviour
         player.MoveShip(GetMouseWorldPosition(), viewDistance);
         cameraLookAtCursor.LookAtMouse(reticule.position );
         ReticuleMovement();
+        CountDown();
+        Debug.Log(timer);
     }
     private void LateUpdate()
     {
