@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class GameController : MonoBehaviour
@@ -13,7 +14,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private PlayerController player;
     [SerializeField] private CameraLookAtCursor cameraLookAtCursor;
     [SerializeField] private Transform reticule;
-   
+    [SerializeField] private Text timeScore;
     public static GameController instance;
     private float timer;
     [SerializeField] private float seconds;
@@ -46,6 +47,7 @@ public class GameController : MonoBehaviour
         if(timer > 0)
         {
             timer -= Time.deltaTime;
+            
         }
         else
         {
@@ -78,7 +80,7 @@ public class GameController : MonoBehaviour
         cameraLookAtCursor.LookAtMouse(reticule.position );
         ReticuleMovement();
         CountDown();
-        Debug.Log(timer);
+        timeScore.text = Mathf.Round( timer).ToString();
     }
     private void LateUpdate()
     {
