@@ -18,15 +18,9 @@ public class HoopController : MonoBehaviour
         }
     }
    
-
-    private void Awake()
-    {
-       
-    }
     private void Update()
     {
-        float speed = 25;
-        transform.Translate(Vector3.back * speed * Time.deltaTime);
+        
         Destroy(this.gameObject, 10);
     }
 }

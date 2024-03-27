@@ -10,6 +10,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+   
     [SerializeField] private float viewDistance;
     [SerializeField] private PlayerController player;
     [SerializeField] private CameraLookAtCursor cameraLookAtCursor;
@@ -17,9 +18,11 @@ public class GameController : MonoBehaviour
     [SerializeField] private Text timeScore;
     public static GameController instance;
     private float timer;
+    private float currentScore;
     [SerializeField] private float seconds;
 
     public float Timer { get => timer; set => timer = value; }
+    public float CurrentScore { get => currentScore; set => currentScore = value; }
 
     private Vector3 GetMouseWorldPosition()
     {
