@@ -84,6 +84,10 @@ public class GameController : MonoBehaviour
         ReticuleMovement();
         CountDown();
         timeScore.text = Mathf.Round( timer).ToString();
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit(); 
+        }
     }
     private void LateUpdate()
     {

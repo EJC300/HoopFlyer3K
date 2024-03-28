@@ -13,8 +13,9 @@ public class Obstacle : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Instantiate(explosion,transform.position,Quaternion.identity);
+            other.transform.parent.GetComponent<PlayerController>().Tumble();
             GameController.instance.Timer -= scoreDetract;
-            Destroy(this.gameObject);
+            Destroy(this.gameObject,0);
         }
     }
     private void Update()

@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreDetract: 2
-  explosion: {fileID: 7927741541611328007, guid: fc013b76918190642a7745d2955ba44f,
+  explosion: {fileID: 1478756926711539945, guid: bbfcc8b10d1ef87448d2fb618e25c60b,
     type: 3}
 --- !u!54 &8422262962682948518
 Rigidbody:

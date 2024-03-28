@@ -8,6 +8,6 @@ public class RandomRotator : MonoBehaviour
 
     void Update()
     {
-       transform.Rotate(Vector3.right + Vector3.up * tumble,Space.Self);
+       transform.Rotate((Vector3.right + Vector3.up + Vector3.forward) * tumble,Space.Self);
     }
 }
