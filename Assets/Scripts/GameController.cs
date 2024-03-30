@@ -62,6 +62,8 @@ public class GameController : MonoBehaviour
     private void ResetGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+  
     }
     private void Awake()
     {
@@ -84,9 +86,9 @@ public class GameController : MonoBehaviour
         ReticuleMovement();
         CountDown();
         timeScore.text = Mathf.Round( timer).ToString();
-        if(Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape))
         {
-            Application.Quit(); 
+            SceneManager.LoadScene(0);
         }
     }
     private void LateUpdate()
