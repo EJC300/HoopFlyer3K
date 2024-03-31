@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Transform reticule;
     [SerializeField] private Text timeScore;
     public static GameController instance;
+    public bool isLoaded { get; set; }
     private float timer;
     private float currentScore;
     [SerializeField] private float seconds;
@@ -61,7 +62,7 @@ public class GameController : MonoBehaviour
     }
     private void ResetGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+       FadeController.instance.FadeAndScene(SceneManager.GetActiveScene().buildIndex);
 
   
     }
@@ -72,27 +73,39 @@ public class GameController : MonoBehaviour
         {
             instance = this;
         }
-      
+     
     }
     private void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
+        Scene scene = SceneManager.GetActiveScene();
+
+        isLoaded = scene.isLoaded;
+     
     }
+     
     private void Update()
     {
-        player.MoveShip(GetMouseWorldPosition(), viewDistance);
-        cameraLookAtCursor.LookAtMouse(reticule.position );
-        ReticuleMovement();
-        CountDown();
-        timeScore.text = Mathf.Round( timer).ToString();
-        if (Input.GetKey(KeyCode.Escape))
+        if ((isLoaded))
         {
-            SceneManager.LoadScene(0);
+         
+
+            player.MoveShip(GetMouseWorldPosition(), viewDistance);
+            cameraLookAtCursor.LookAtMouse(reticule.position);
+            ReticuleMovement();
+            CountDown();
+            timeScore.text = Mathf.Round(timer).ToString();
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
     private void LateUpdate()
     {
+       
+        
        player.transform.position = ClampToBounds(player.transform.position);
     }
 
