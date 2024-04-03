@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
         position.x = Mathf.Clamp(position.x, -screenDimensions.x, screenDimensions.x);
         position.y = Mathf.Clamp(position.y, -screenDimensions.y, screenDimensions.y);
 
-        return player.transform.InverseTransformDirection( position);
+        return player.transform.TransformDirection( position);
     }
 
   
@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour
     }
     private void ResetGame()
     {
-       FadeController.instance.FadeAndScene(SceneManager.GetActiveScene().buildIndex);
+     //  FadeController.instance.FadeAndScene(SceneManager.GetActiveScene().buildIndex);
 
   
     }

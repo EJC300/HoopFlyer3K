@@ -230,11 +230,11 @@ Transform:
   m_GameObject: {fileID: 163771370}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 217.1}
+  m_LocalPosition: {x: -1.5431128, y: -7.294775, z: 156.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1059152153}
+  m_Father: {fileID: 330585546}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &163771372
 MonoBehaviour:
@@ -527,7 +527,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 4.2, z: -30.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 163771371}
+  - {fileID: 821760467}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
@@ -994,11 +996,11 @@ Transform:
   m_GameObject: {fileID: 821760466}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 246.6}
+  m_LocalPosition: {x: -1.5431128, y: -7.294775, z: 186.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1059152153}
+  m_Father: {fileID: 330585546}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &821760468
 MonoBehaviour:
@@ -1278,8 +1280,6 @@ Transform:
   m_Children:
   - {fileID: 1539128517}
   - {fileID: 1212679264}
-  - {fileID: 163771371}
-  - {fileID: 821760467}
   - {fileID: 312301304}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1650,6 +1650,7 @@ GameObject:
   - component: {fileID: 1539128517}
   - component: {fileID: 1539128518}
   - component: {fileID: 1539128519}
+  - component: {fileID: 1539128520}
   m_Layer: 0
   m_Name: Flyer
   m_TagString: Untagged
@@ -1702,6 +1703,21 @@ MonoBehaviour:
   player: {fileID: 1539128517}
   target: {fileID: 543450653332010814}
   offset: {x: 0, y: 0, z: 0}
+--- !u!114 &1539128520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539128513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb57cdaebc0c6d247a866a185b771fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 0.3
+  shakeScale: 2
+  shakeSpeed: 1
 --- !u!1 &1737952628
 GameObject:
   m_ObjectHideFlags: 0

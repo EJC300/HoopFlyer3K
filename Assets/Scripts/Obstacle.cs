@@ -14,6 +14,7 @@ public class Obstacle : MonoBehaviour
         {
             Instantiate(explosion,transform.position,Quaternion.identity);
             other.transform.parent.GetComponent<PlayerController>().Tumble();
+            other.transform.parent.GetComponent<CameraShake>().Shake();
             GameController.instance.Timer -= scoreDetract;
             Destroy(this.gameObject,0);
         }
