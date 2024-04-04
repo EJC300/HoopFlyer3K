@@ -16,7 +16,7 @@ public class CameraLookAtCursor : MonoBehaviour
     }
     public void LookAtMouse(Vector3 mousePosition)
     {
-        Camera.main.transform.position =  QuasarMath.SmoothDamp(Camera.main.transform.position, target.position + offset,5,Time.deltaTime);
+        Camera.main.transform.position =  QuasarMath.SmoothDamp(Camera.main.transform.position, target.position + offset,3.5f,Time.deltaTime );
         Vector3 heading = (mousePosition - Camera.main.transform.position);
         float lookAheadDistance = 25;
         heading = new Vector3(heading.x, heading.y, lookAheadDistance);

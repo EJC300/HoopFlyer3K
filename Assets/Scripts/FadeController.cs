@@ -10,56 +10,29 @@ using UnityEngine.UI;
 public class FadeController : MonoBehaviour
 {
     [SerializeField] private float speed;
-    public static FadeController instance;
     [SerializeField] private Image fadeImage;
-    private bool faded;
-    Color color;
-    private void Awake()
+    public static FadeController instance;
+  
+
+
+    private void Start()
     {
-       
-
-        DontDestroyOnLoad(gameObject);
-        if (instance != this && instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-
-        }
-
+        StartCoroutine(Fade());
     }
-    private void Update()
+    public IEnumerator Fade()
     {
-        Fade();
-    }
-    private void Fade()
-    {
-         color = fadeImage.color;   
-        if(!faded)
-        {
-            fadeImage.enabled = true;
-            color.a = QuasarMath.SmoothDamp(color.a, 0.0f, Time.deltaTime, speed);
-            fadeImage.color = color;    
-        }
-        else if(color.a < 0.02f)
+        Color color = fadeImage.color;
 
+        while(color.a >= 0)
         {
-            faded = true;
-            fadeImage.enabled = false;  
-            color.a = 1.0f;
+            color.a = QuasarMath.SmoothDamp(color.a, 0,Time.deltaTime,speed);
             fadeImage.color = color;
-          
+            yield return null;
+
         }
-        Debug.Log(faded);
+   
+        fadeImage.enabled = false;  
     }
 
-    public void FadeAndScene(int index)
-    {
-        if (faded)
-        {
-            SceneManager.LoadScene(index);
-        }
-    }
+ 
 }

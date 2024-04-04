@@ -21,6 +21,6 @@ public class CameraShake : MonoBehaviour
         {
             seconds = shakeDuration;
         }
-        Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + camPos.x, Camera.main.transform.position.y + camPos.y,Camera.main.transform.position.z);
+        Camera.main.transform.position = new Vector3( camPos.x, camPos.y,Camera.main.transform.position.z);
     }
 }

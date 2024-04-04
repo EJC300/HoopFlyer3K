@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour
     }
     private void ResetGame()
     {
-     //  FadeController.instance.FadeAndScene(SceneManager.GetActiveScene().buildIndex);
+     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
   
     }

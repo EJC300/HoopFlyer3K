@@ -16,7 +16,7 @@ public class HoopSpawnerController : MonoBehaviour
             x = Random.Range(-x, x);
             float y = Mathf.Sin(speed * Time.time) * scaleY;
             y = Random.Range(-y, y);
-            Vector3 screenDimensions = Camera.main.ViewportToWorldPoint(new Vector3(Screen.width - scaleX, Screen.height - scaleY, 0));
+            Vector3 screenDimensions = Camera.main.ViewportToWorldPoint(new Vector3((Screen.width - scaleX)/Screen.width, (Screen.height - scaleY)/Screen.height, 0));
             float boundX = Mathf.Clamp(x, -screenDimensions.x, screenDimensions.x);
             float boundY = Mathf.Clamp(y, -screenDimensions.y, screenDimensions.y);
             Vector3 direction = (new Vector3(boundX, boundY, transform.localPosition.z));
