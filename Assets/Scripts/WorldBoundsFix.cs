@@ -7,7 +7,7 @@ public class WorldBoundsFix : MonoBehaviour
 {
     [SerializeField] private float distanceThreshold;
     [SerializeField] private Transform playerRig;
-
+    
     private void LateUpdate()
     {
         if (playerRig.transform.position.magnitude > distanceThreshold)
