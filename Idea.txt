@@ -1,0 +1,46 @@
+Core Idea: You are a space pilot in the middle of an asteroid belt being pelted by nonstop asteroids and baddies. Your ship has limited fuel that must be recharged in StarPortals that appear ahead of you scattered in the middle of the asteroid barrage. The bad guys are on your six! Fire your blaster, avoid being crushed by the crazy amount of space rocks your heading into. Can you make it home in one piece?
+
+Gameplay:
+
+On-Rails straight shot- You are constrained to the screen borders and must dodge space rocks enemy fire and survive long enough to get to the end 
+of the level.
+
+Asteroids and bad guys- Random bad ships fly towards from the top corners of the screen with blasters blazing kill them with YOUR blasters! Asteroids also 
+fly towards you in your relative direction.
+
+The Hoops(SpacePortals!) - Mysterious space portals materialize in your peripherial fly through them to gain more fuel.
+
+Space Ship Fuel- Your fuel is running low use what you have and can gain from the SpacePortals. It is draining by the second! 
+
+Spaceship Boost - Need a little more speed? Hit the boost for a moderate fuel cost and limited control
+
+Spaceship Health - Spaceship is damaged by running into space rocks, enemies or the enemy blaster bolts. If your health bar reaches zero your dead 
+but don't worry you're treated to a nice death animation!
+
+3rd Person Chase Rail Camera - The camera chases the ship rig and looks ahead in infront of the ship.
+
+Bonus Feature: I like to have some sort of science or life simulation element in my games and this will be the first game with that easter egg.
+Feature: Player Character Vitals. The player vitals read pilot heartbeat, and blood oxygen level from a simulated blood oxygen emulation and heartbeat. Like a smart watch..sort of! You can enable it with the tab key
+
+
+SERIOUS STUFF:
+
+I will be using the following architectures:
+
+Singleton
+Object Factory
+Object Pooling
+Script Composition
+Simplified Model View Presenter
+
+I plan on being more serious and tact with this project.
+
+Unlike my cohorts in my group I am going to be very careful with this and make sure it is easily refactorable.
+
+Because I like something pretty to look at while I work I am using placeholder visuals from the previous iteration.
+
+
+
+
+
+
