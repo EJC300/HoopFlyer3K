@@ -16,7 +16,11 @@ public class TestLoad : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            LevelManager.Instance.LoadScene(1);
+            LevelManager.Instance.LoadScene(2);
+        }
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            GameStateManager.Instance.Pause();
         }
     }
 }

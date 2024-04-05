@@ -2,13 +2,12 @@ First Stage: Infrastructure
 
 Game Flow 0-
  This will be the scene transition and the start screen to instruction screen then finally the gameplay.
-Hopefully with a single key stroke I can go back seemlessly with a nice fade out effect. - done!
+Hopefully with a single key stroke I can go back seemlessly with a nice fade out effect.
 
 Game Flow 1-
  This second part of game flow is going to include the win and lose conditions. This is an unorthodox approach by making the 
 outcomes the first core gameplay made but I think it helps constrain me in the game itself.
-All this will do is show a placeholder graphic for the two conditions and prompt the player to replay or quite to the start screen. 
-This will be handled by my statemachine. - done!
+All this will do is show a placeholder graphic for the two conditions and prompt the player to replay or quite to the start screen.
 
 Player Controls 0-
   Using the new input system I will implement the ability to use the scene transition with the mouse button and pause the game with the escape key toggeling
