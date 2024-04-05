@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utilities;
 
 public class Pause : IState
 {
@@ -26,7 +27,7 @@ public class Pause : IState
 
     public void Initiliaze()
     {
-        if (currentGameSpeed != Time.timeScale)
+        if (currentGameSpeed != Time.timeScale )
         {
             currentGameSpeed = Time.timeScale;
         }
@@ -37,12 +38,13 @@ public class Pause : IState
 
     public void Update()
     {
-        currentGameSpeed = 0;
-        Time.timeScale = currentGameSpeed;
+  
         //Pause Audio
         //Modal Window set active
-        if (!pauseWindow.activeInHierarchy && SceneManager.GetActiveScene().buildIndex > 1)
+        if (!pauseWindow.activeInHierarchy && SceneManager.GetActiveScene().buildIndex > 1 && LevelManager.Instance.DoneTransitioning)
         {
+            currentGameSpeed = 0;
+            Time.timeScale = currentGameSpeed;
             pauseWindow.gameObject.SetActive(true);
         }
     }

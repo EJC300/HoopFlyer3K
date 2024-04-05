@@ -21,6 +21,7 @@ public class TestLoad : MonoBehaviour
         if(Input.GetKey(KeyCode.Escape))
         {
             GameStateManager.Instance.Pause();
+          
         }
     }
 }

@@ -59,10 +59,10 @@ public class GameStateManager : Singleton<GameStateManager>
     }
     private void Update()
     {
-        if (GetScene.buildIndex > 1)
-        {
+    
+        
 
             gameStateController.UpdateState();
-        }
+        
     }
 }

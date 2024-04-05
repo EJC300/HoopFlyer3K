@@ -2,13 +2,13 @@
     "name": "PlayerInput",
     "maps": [
         {
-            "name": "Fire",
-            "id": "b9faa33a-25f6-4c43-a7c4-639b12dc8bc2",
+            "name": "PlayerControls",
+            "id": "e0564949-75fb-4e74-b526-d13ca0bd274a",
             "actions": [
                 {
                     "name": "New action",
                     "type": "Button",
-                    "id": "2d70487d-c97a-490c-95de-ec9783136434",
+                    "id": "a793be59-be81-4122-a33e-246103dac2c4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -18,7 +18,7 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "4d584797-32e1-4e67-877c-75c71e49f635",
+                    "id": "a2da9c1c-9618-44f0-a3fa-82791ec7618e",
                     "path": "",
                     "interactions": "",
                     "processors": "",
@@ -30,13 +30,22 @@
             ]
         },
         {
-            "name": "Pause",
-            "id": "46d77eb4-d042-4cba-88e7-732d0d1feb67",
+            "name": "GameControls",
+            "id": "f230ce36-30cc-4242-834c-b166190b8ea6",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Pause",
                     "type": "Button",
-                    "id": "c45c490d-118b-41b2-aa09-613b72ec47e8",
+                    "id": "62f0e160-fc15-4d7d-8adb-5e4ea1c2e500",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "NextLevel",
+                    "type": "Button",
+                    "id": "9714e19a-5563-4295-b113-afa4ce1544a1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -46,40 +55,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "9cb39aa1-0ed0-441a-8ab6-fce1cdc3e75c",
-                    "path": "",
+                    "id": "8dda6f7d-67d8-42b7-a309-9af0fab6c7bb",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Exit",
-            "id": "473cffd6-7fd6-40e8-8b8b-e65b86e4452b",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "8c8bec74-5b5f-49d1-8c30-258bf75f1c85",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "ae63b419-7ffc-49d9-9ce9-b9f1896c5135",
-                    "path": "",
-                    "interactions": "",
+                    "id": "5b4acf15-4441-4081-8283-1ce7b203a28d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Tap",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "NextLevel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
