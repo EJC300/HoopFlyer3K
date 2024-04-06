@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Utilities;
 
 public class TestLoad : MonoBehaviour
@@ -10,18 +11,10 @@ public class TestLoad : MonoBehaviour
     {
         
     }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            LevelManager.Instance.LoadScene(2);
-        }
-        if(Input.GetKey(KeyCode.Escape))
-        {
-            GameStateManager.Instance.Pause();
-          
-        }
+      
+     
     }
 }

@@ -12,7 +12,7 @@ public class Exit : IState
 
     public void Update()
     {
-        LevelManager.Instance.LoadScene(0);
+        LevelManager.Instance.LoadScene(1);
     }
 
     void IState.Exit()
