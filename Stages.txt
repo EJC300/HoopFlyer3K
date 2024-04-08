@@ -1,0 +1,114 @@
+First Stage: Infrastructure
+
+Game Flow 0-
+ This will be the scene transition and the start screen to instruction screen then finally the gameplay.
+Hopefully with a single key stroke I can go back seemlessly with a nice fade out effect.
+
+Game Flow 1-
+ This second part of game flow is going to include the win and lose conditions. This is an unorthodox approach by making the 
+outcomes the first core gameplay made but I think it helps constrain me in the game itself.
+All this will do is show a placeholder graphic for the two conditions and prompt the player to replay or quite to the start screen. 
+This will be handled by my statemachine.
+
+Player Controls 0-
+  Using the new input system I will implement the ability to use the scene transition with the mouse button and pause the game with the escape key toggeling
+the pause dialogue.
+
+
+Player Controls 1 -
+ Develop the ability to move the mouse, lock the cursor and hide it, and finally get the screen to world coordinates.
+
+Player Controls 2-
+ This will be about firing player blasters with the left mouse button as well as the boost toggle
+
+Object Spawning-
+ The creation of support systems to spawn objects and pool objects as well as deactivating objects
+
+Basic Object Components:
+ This will be stuff like movement, rotating an object at certain speeds or angles.
+
+
+Second Stage: Gameplay Support Systems
+
+Destruction and Damage-
+Scripts and components dealing with handling object damage and deactivation.
+
+Generic Weapons-
+A collection of generic weapon components that aid in the creation of the blasters and can be expanded later
+
+Collision Detection-
+ Components that help with collision detection such as when the ship runs into the center of the SpacePortals or collides with a space rock.
+ 
+Generic Player Values-
+These are generics that can handle things such as the control of health or fuel even stamina in a completely unrelated game.
+
+Third Stage: The Game Itself
+
+Chase Camera:
+ Utilizing Basic Object Components and tracking of player position I will be able to develop a chase camera that follows behind the player ship from behind.
+
+Movement of Player Ship:
+ Move the ship with Player Controls and the player rig. 
+
+Boost of player ship:
+Add a boost additive using player generic values as in the managment of speed and fuel.
+
+Handle Fuel:
+ Drain fuel at a rate of 1 per second out of 1000 units of fuel again using the Generic Player Values increase the rate when boosting
+If collision with center of SpacePortal you will gain fuel
+Handle Health:
+ Deplete health when hit with something using Generic Player Values.
+
+///A Special Note! \\\
+
+/// Thanks to the reference of a singleton ( the player and a monolithic object pooler with unique IDs) I may just need to compare distance of individual objects using a simplistic AABB box collision without
+Using Physics!!
+///
+
+Handle Spawning of Asteroids and Bad guys:
+Utilize the Object pooling and specialized object factories to spawn the bad guys and asteroids. I will also use this for the SpacePortals
+
+
+Player Destruction and Damage:
+On player collision spin the ship and lose control for set seconds
+On player collision with bullets don't do that just take damage.
+On player death spin out then shatter for placeholder just disappear.
+
+
+Player Shoots Blasters
+
+Blaster projectiles on collision apply damage to ANYTHING that is damageable.
+
+Handle Player Health
+
+Handle Asteroid Health
+
+Handle Bad Guy Health
+
+Handle Bad Guy Blasters
+
+Handle Bad Guy Movement
+
+Despawn projectiles
+
+Implement Win/Lose Condition 
+
+BONUS: Handle Vitals-
+  Simulate Heartbeat and respiration coinciding with blood oxygen levels
+Draw an EKG with blood oxygen percentage in a UI that can be toggled with just the generic tab button.
+
+Third Stage: Polish
+///This has mostly to do with visual and audio effects
+NO DESCRIPTIONS
+
+Game Intro Music
+Game Scene Music
+Game Lose Music
+Game Win Music
+
+Replace Placeholders.
+
+Export Game!
+
+
+
