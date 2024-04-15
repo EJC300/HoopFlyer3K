@@ -65,6 +65,7 @@ MonoBehaviour:
   scoreDetract: 15
   explosion: {fileID: 1478756926711539945, guid: bbfcc8b10d1ef87448d2fb618e25c60b,
     type: 3}
+  damageAmount: 5
 --- !u!54 &8422262962682948518
 Rigidbody:
   m_ObjectHideFlags: 0

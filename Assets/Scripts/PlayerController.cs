@@ -4,23 +4,27 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour,IDamagable
 {
     [SerializeField] private float boostSpeed;
     [SerializeField] private float speed;
     [SerializeField] private float rollAmount;
+    [SerializeField] private float fuelDrainAmount;
     [SerializeField] private Mover rig;
     [SerializeField] private GameObject boostField;
+    [SerializeField] private PlayerHealth health;
+ 
     private RandomRotator tumbler;
     private Transform childRoller;
     private Vector3 roll;
-    private float seconds;
     private float lastSpeed;
+    private float currentDrainAmount;
     private bool collide;
  
 
-    float maxSeconds = 0.3f;
+ 
     public bool Collide { get => collide; set => collide = value; }
+    public PlayerHealth Health { get => health; set => health = value; }
 
     private void Start()
     {
@@ -41,16 +45,17 @@ public class PlayerController : MonoBehaviour
     {
         if (!collide)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetKey(KeyCode.Space))
             {
                 boostField.SetActive(true);
                 speed = boostSpeed;
-                GameController.instance.Timer -= 0.02f;
+                currentDrainAmount = 0.05f;
             }
             else
             {
                 boostField.SetActive(false);
                 speed = lastSpeed;
+                currentDrainAmount = fuelDrainAmount;
             }
             rig.Speed = speed;
             tumbler.enabled = false;
@@ -83,17 +88,20 @@ public class PlayerController : MonoBehaviour
         }
         else if (collide)
         {
-            seconds -= Time.deltaTime;
+            
             tumbler.enabled = true;
 
-            if (seconds < 0)
-            {
-                seconds = maxSeconds;
-
-                collide = false;
-            }
 
         }
+        Health.DrainFuel(currentDrainAmount);
+        tumbler.enabled = false;
+        collide = false;
 
+    }
+
+    public void Damage(float damageAmount)
+    {
+        collide = true;
+        Health.Damage(damageAmount);
     }
 }

@@ -13,8 +13,8 @@ public class HoopController : MonoBehaviour
         {
            
             greenLight.gameObject.SetActive(true);
-  
-            GameController.instance.Timer += 5;
+
+            other.GetComponent<PlayerController>().Health.IncreaseFuel(5);
           
         }
     }

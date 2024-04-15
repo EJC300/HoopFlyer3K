@@ -15,15 +15,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private PlayerController player;
     [SerializeField] private CameraLookAtCursor cameraLookAtCursor;
     [SerializeField] private Transform reticule;
-    [SerializeField] private Text timeScore;
     public static GameController instance;
     public bool isLoaded { get; set; }
-    private float timer;
-    private float currentScore;
-    [SerializeField] private float seconds;
 
-    public float Timer { get => timer; set => timer = value; }
-    public float CurrentScore { get => currentScore; set => currentScore = value; }
 
     private Vector3 GetMouseWorldPosition()
     {
@@ -45,21 +39,7 @@ public class GameController : MonoBehaviour
         float viewDistanceMultiplier = 2f;
         reticule.localPosition  = player.transform.localPosition + new Vector3(GetMouseWorldPosition().x, GetMouseWorldPosition().y, viewDistance * viewDistanceMultiplier);
     }
-    void CountDown()
-    {
-
-        if(timer > 0)
-        {
-            timer -= Time.deltaTime;
-            
-        }
-        else
-        {
-            timer = 0;
-            ResetGame();
-          
-        }
-    }
+  
     private void ResetGame()
     {
      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -68,7 +48,7 @@ public class GameController : MonoBehaviour
     }
     private void Awake()
     {
-        timer = seconds;
+      
         if (instance == null)
         {
             instance = this;
@@ -94,8 +74,8 @@ public class GameController : MonoBehaviour
             player.MoveShip(GetMouseWorldPosition(), viewDistance);
             cameraLookAtCursor.LookAtMouse(reticule.position);
             ReticuleMovement();
-            CountDown();
-            timeScore.text = Mathf.Round(timer).ToString();
+   
+           
             if (Input.GetKey(KeyCode.Escape))
             {
                 SceneManager.LoadScene(0);
