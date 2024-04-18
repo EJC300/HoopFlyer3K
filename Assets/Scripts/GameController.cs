@@ -40,12 +40,7 @@ public class GameController : MonoBehaviour
         reticule.localPosition  = player.transform.localPosition + new Vector3(GetMouseWorldPosition().x, GetMouseWorldPosition().y, viewDistance * viewDistanceMultiplier);
     }
   
-    private void ResetGame()
-    {
-     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
   
-    }
     private void Awake()
     {
       

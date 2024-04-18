@@ -19,13 +19,5 @@ public class HoopController : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-   
-    }
-    private void Update()
-    {
-       
-        Destroy(this.gameObject, 10);
-    }
+  
 }

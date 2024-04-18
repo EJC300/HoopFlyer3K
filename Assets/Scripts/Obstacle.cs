@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+   
     [SerializeField] private int scoreDetract;
     [SerializeField] private Transform explosion;
     [SerializeField] private float damageAmount;
@@ -22,8 +23,5 @@ public class Obstacle : MonoBehaviour
             damage.Damage(damageAmount);
         }
     }
-    private void Update()
-    {
-        Destroy(this.gameObject, 10);
-    }
+    
 }

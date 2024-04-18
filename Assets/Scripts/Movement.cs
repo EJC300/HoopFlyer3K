@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed;   
     private void MoveInDirection()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(( direction) * speed * Time.deltaTime);
     }
     private void Update()
     {
