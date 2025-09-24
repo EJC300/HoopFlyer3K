@@ -20,7 +20,7 @@ public class CameraLookAtCursor : MonoBehaviour
         Vector3 heading = (mousePosition - Camera.main.transform.position);
         float lookAheadDistance = 25;
         heading = new Vector3(heading.x, heading.y, lookAheadDistance);
-        float speed = 1.5f;
+        float speed = 3.5f;
         Camera.main.transform.localRotation = QuasarMath.SlerpLookAt(Camera.main.transform.localRotation,Camera.main.transform.position, heading, speed, Time.deltaTime);
 
 
