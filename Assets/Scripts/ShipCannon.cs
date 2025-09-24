@@ -15,7 +15,7 @@ public class ShipCannon : MonoBehaviour
         if (nextFire < Time.time && Input.GetMouseButton(0))
         {
             nextFire = Time.time + numOfBulletsPerRate/fireRate;
-            Instantiate(bullet,transform.position,transform.parent.localRotation);
+            Instantiate(bullet,transform.position,transform.rotation);
         }
     }
 }

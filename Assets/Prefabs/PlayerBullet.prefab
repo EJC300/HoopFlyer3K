@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05907175, y: 0.30474472, z: 0.05907175}
+  m_LocalScale: {x: 0.10362366, y: 0.5345832, z: 0.10362366}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 280123589629618287}
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bd321649f9c5a04438a6424a35afac0f, type: 2}
+  - {fileID: 2100000, guid: 5a69dae6172daae418f3d1639f620e0a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -169,7 +169,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.17378934, b: 0, a: 1}
-  m_Intensity: 1
+  m_Intensity: 12
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
