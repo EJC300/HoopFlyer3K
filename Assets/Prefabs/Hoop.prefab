@@ -65,6 +65,7 @@ GameObject:
   - component: {fileID: 802410445767980195}
   - component: {fileID: 6219699759274381673}
   - component: {fileID: 251310567144925743}
+  - component: {fileID: 1716873110312396963}
   m_Layer: 0
   m_Name: Hoop
   m_TagString: Untagged
@@ -145,6 +146,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: -1}
   speed: 15
+--- !u!114 &1716873110312396963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103058721965968819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63846072f837db043ab7c2dc5d3b598a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4066375632408171964
 GameObject:
   m_ObjectHideFlags: 0

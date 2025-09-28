@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour,IDamagable
     private float lastSpeed;
     private float currentDrainAmount;
     private bool collide;
- 
+    private Vector3 delta;
 
  
     public bool Collide { get => collide; set => collide = value; }
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour,IDamagable
         childRoller = transform.GetChild(0);
         tumbler =  childRoller.GetComponent<RandomRotator>();
     }
-
+    
     public void Tumble()
     {
        
@@ -40,6 +40,18 @@ public class PlayerController : MonoBehaviour,IDamagable
        collide = true;
      
        
+    }
+    private void OnEnable()
+    {
+        WorldBoundsFix.OnOriginShift += UpdatePlayerOrigin;
+    }
+    private void OnDisable()
+    {
+        WorldBoundsFix.OnOriginShift -= UpdatePlayerOrigin;
+    }
+    void UpdatePlayerOrigin(Vector3 referencePosition)
+    {
+        delta = Vector3.zero - referencePosition;
     }
     public void MoveShip(Vector3 mousePosition, float viewDistance)
     {
@@ -60,6 +72,9 @@ public class PlayerController : MonoBehaviour,IDamagable
             rig.Speed = speed;
             tumbler.enabled = false;
             mousePosition = transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, viewDistance)));
+            mousePosition.x = Mathf.Clamp(mousePosition.x,-170,170);
+            mousePosition.y = Mathf.Clamp(mousePosition.y,-170,170);
+            mousePosition.z = 0;
             float rollSpeed = speed * 2f;
             Vector3 destination = QuasarMath.SmoothDamp(transform.localPosition, mousePosition, Time.deltaTime, speed);
             Vector3 direction = destination - transform.localPosition;

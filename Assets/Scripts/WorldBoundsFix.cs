@@ -2,20 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using LevelManager;
 public class WorldBoundsFix : MonoBehaviour
 {
     [SerializeField] private float distanceThreshold;
     [SerializeField] private Transform referencePos;
-    
+
+
+    public delegate void originShift(Vector3 position);
+
+    public static event originShift OnOriginShift;
+
     private void LateUpdate()
     {
         if (referencePos.transform.position.magnitude > distanceThreshold)
         {
+            
             for (int z = 0; z < SceneManager.sceneCount; z++)
             {
                 foreach (GameObject g in SceneManager.GetSceneAt(z).GetRootGameObjects())
-                    g.transform.position -= referencePos.position;
+                    g.transform.root.position -=  referencePos.position;
             }
             var trails = FindObjectsOfType<TrailRenderer>() as TrailRenderer[];
             foreach (var trail in trails)
@@ -28,6 +34,8 @@ public class WorldBoundsFix : MonoBehaviour
 
                 trail.SetPositions(positions);
             }
+            OnOriginShift?.Invoke(referencePos.position);
+            LevelGenerator.SetDelta(referencePos.position);
         }
     }
 }

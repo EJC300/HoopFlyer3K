@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     }
     private Vector3 ClampToBounds(Vector3 oldPos)
     {
-        Vector3 screenDimensions = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - (viewDistance), Screen.height - (viewDistance), viewDistance));
+        Vector3 screenDimensions = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, viewDistance));
         Vector3 position = oldPos;
         position.x = Mathf.Clamp(position.x, -screenDimensions.x, screenDimensions.x);
         position.y = Mathf.Clamp(position.y, -screenDimensions.y, screenDimensions.y);
