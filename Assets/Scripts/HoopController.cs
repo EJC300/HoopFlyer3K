@@ -15,7 +15,7 @@ public class HoopController : MonoBehaviour
             greenLight.gameObject.SetActive(true);
 
             other.GetComponent<PlayerController>().Health.IncreaseFuel(5);
-          
+            other.GetComponent<PlayerController>().Health.Damage(-5);
         }
     }
 

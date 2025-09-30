@@ -5,20 +5,20 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
    
-    [SerializeField] private int scoreDetract;
     [SerializeField] private Transform explosion;
     [SerializeField] private float damageAmount;
     //Maybe should use interfaces with events?
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Bullet"))
         {
-            Instantiate(explosion,transform.position,Quaternion.identity);
-          
+            Instantiate(explosion, transform.position, Quaternion.identity);
 
-            Destroy(this.gameObject,0);
+           
+
+            Destroy(this.gameObject, 0);
         }
-        if(other.gameObject.TryGetComponent<IDamagable>(out IDamagable damage))
+        if (other.gameObject.TryGetComponent<IDamagable>(out IDamagable damage))
         {
             damage.Damage(damageAmount);
         }
