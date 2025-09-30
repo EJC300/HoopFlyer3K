@@ -21,6 +21,7 @@ public class WorldBoundsFix : MonoBehaviour
             for (int z = 0; z < SceneManager.sceneCount; z++)
             {
                 foreach (GameObject g in SceneManager.GetSceneAt(z).GetRootGameObjects())
+                  
                     g.transform.root.position -=  referencePos.position;
             }
             var trails = FindObjectsOfType<TrailRenderer>() as TrailRenderer[];

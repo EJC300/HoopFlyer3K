@@ -5,19 +5,35 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 
 public class GameController : MonoBehaviour
 {
    
+
     [SerializeField] private float viewDistance;
     [SerializeField] private PlayerController player;
     [SerializeField] private CameraLookAtCursor cameraLookAtCursor;
     [SerializeField] private Transform reticule;
+    
     public static GameController instance;
+    public delegate void GameOver();
+    public static event GameOver OnGameOver;
+    public delegate void PauseGame();
+    public static event PauseGame OnPauseGame;
+
+    public float seconds;
+    public float minutes;
     public bool isLoaded { get; set; }
 
+    public void CalculateTimeElapsed()
+    {
+        seconds = Time.timeSinceLevelLoad;
+        if (seconds > 60)
+        {
+            minutes++;
+        }
+    }
 
     private Vector3 GetMouseWorldPosition()
     {
@@ -65,11 +81,11 @@ public class GameController : MonoBehaviour
         if ((isLoaded))
         {
          
-
+            CalculateTimeElapsed();
             player.MoveShip(GetMouseWorldPosition(), viewDistance);
             cameraLookAtCursor.LookAtMouse(reticule.position);
             ReticuleMovement();
-   
+            OnGameOver?.Invoke();
            
             if (Input.GetKey(KeyCode.Escape))
             {

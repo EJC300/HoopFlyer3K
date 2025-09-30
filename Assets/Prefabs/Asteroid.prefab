@@ -170,7 +170,7 @@ MonoBehaviour:
   scoreDetract: 0
   explosion: {fileID: 7927741541611328007, guid: fc013b76918190642a7745d2955ba44f,
     type: 3}
-  damageAmount: 15
+  damageAmount: 1.5
 --- !u!4 &6581293761190902183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2312342739968676385, guid: 78e373ce921e50d4487286ff0f39439d,

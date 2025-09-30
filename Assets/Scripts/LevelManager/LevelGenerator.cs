@@ -35,7 +35,7 @@ namespace LevelManager
 
         public static void SetDelta(Vector3 pos)
         {
-            delta =  Vector3.zero - pos;
+            delta =  pos - Vector3.zero;
         }
         void FillList()
         {
@@ -57,11 +57,11 @@ namespace LevelManager
 
             GameObject objectToSpawn = spawnableList[Random.Range(0,spawnCount)];
             Debug.Log(objectToSpawn);
-           
 
 
-            spawnPos.x = Random.value * 70 - Random.value * -70;
-            spawnPos.y = Random.value * 70 - Random.value * -70;
+
+            spawnPos.x = Random.value * 50;
+            spawnPos.y = Random.value * 50;
             spawnPos.z = transform.parent.position.z + 100;
           
 
@@ -72,8 +72,10 @@ namespace LevelManager
                 objectToSpawn = previousSpawn;
                 
             }
-
-            Instantiate(objectToSpawn,spawnPos + delta,Quaternion.identity);
+            delta.y = 0;
+            delta.x = 0;
+            spawnPos += delta;
+            Instantiate(objectToSpawn,spawnPos,Quaternion.identity);
             previousSpawn = objectToSpawn;
 
 

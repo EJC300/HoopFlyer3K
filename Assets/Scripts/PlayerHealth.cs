@@ -13,6 +13,21 @@ public class PlayerHealth : MonoBehaviour,IDamagable
     {
         health.ChangeValue(damageAmount, false);
     }
+    public void OnFuelEmpty()
+    {
+        if (fuel.value < 1)
+        {
+            
+        }
+        else
+        {
+            return;
+        }
+    }
+    public void OnDeath()
+    {
+
+    }
     public void DrainFuel(float fuelAmount)
     {
       if(fuel.value > 0)
@@ -25,13 +40,23 @@ public class PlayerHealth : MonoBehaviour,IDamagable
     {
         fuel.ChangeValue(fuelAmount,true);
     }
-   private void Update()
+    private void OnEnable()
+    {
+        GameController.OnGameOver += OnFuelEmpty;
+     
+    }
+    private void OnDisable()
+    {
+        GameController.OnGameOver -= OnFuelEmpty;
+    }
+    private void Update()
     {
        float healthPercentage = health.value/health.maxValue;
        float fuelPercentage = fuel.value/fuel.maxValue;
 
        healthBar.value = healthPercentage;
        fuelBar.value = fuelPercentage;
+      
     }
 
     //On health is zero destroy player and instantiate player husk then hit pause menu

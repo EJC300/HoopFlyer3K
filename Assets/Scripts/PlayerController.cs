@@ -44,10 +44,12 @@ public class PlayerController : MonoBehaviour,IDamagable
     private void OnEnable()
     {
         WorldBoundsFix.OnOriginShift += UpdatePlayerOrigin;
+     
     }
     private void OnDisable()
     {
         WorldBoundsFix.OnOriginShift -= UpdatePlayerOrigin;
+    
     }
     void UpdatePlayerOrigin(Vector3 referencePosition)
     {
@@ -113,7 +115,11 @@ public class PlayerController : MonoBehaviour,IDamagable
         collide = false;
 
     }
-
+    private void Update()
+    {
+       
+    }
+ 
     public void Damage(float damageAmount)
     {
         collide = true;
