@@ -1,0 +1,39 @@
+using UnityEngine;
+
+public class ChaseCamera : MonoBehaviour
+{
+  
+    [SerializeField] private Transform Player;
+    [SerializeField] private Transform PlayerShip;
+    [SerializeField] private float CameraChaseSpeed;
+    [SerializeField] private float CameraLookSpeed;
+    private bool StartGame = false;
+    [SerializeField] Vector3 target;
+    public void InitalizeCamera()
+    {
+        StartGame = true;
+        
+    }
+    void ChaseCameraMove()
+    {
+
+        var moveTarget = PlayerShip.position + target;
+
+        transform.position = QuasarMath.SmoothDamp(transform.position ,moveTarget,Time.deltaTime,CameraChaseSpeed);
+    }
+    void LookAtCaret()
+    {
+        
+        var lookAt = Quaternion.LookRotation(PlayerShip.position - transform.position,Vector3.up);
+        transform.rotation = lookAt;
+    }
+    
+    private void Update()
+    {
+        if (StartGame)
+        {
+            ChaseCameraMove();
+            LookAtCaret();
+        }
+    }
+}

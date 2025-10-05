@@ -1,0 +1,122 @@
+{
+    "name": "PlayerInput",
+    "maps": [
+        {
+            "name": "PlayerGameplay",
+            "id": "eb32e3c5-b1b9-4a7d-b440-6b74fb3b6729",
+            "actions": [
+                {
+                    "name": "MouseMove",
+                    "type": "Value",
+                    "id": "d53ba3ec-b843-4b97-bf45-64f2b7ce37a5",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MouseFire",
+                    "type": "Button",
+                    "id": "473333b1-99d6-43de-bfc4-dfe1bc8bf72e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MouseBoost",
+                    "type": "Button",
+                    "id": "8e372498-601e-45d5-928d-be85f2bf4ac3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8ffcd66b-84bd-4122-aa6a-6e97c71bbe92",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a87d3dc-b6c0-484a-bda3-512c4d445cab",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseFire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "027af44c-a7de-4fce-aa9b-b33e09c77f59",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseBoost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Menus",
+            "id": "07a8a490-76ef-4a16-aea8-fee45ea53d6b",
+            "actions": [
+                {
+                    "name": "Back",
+                    "type": "Button",
+                    "id": "574facf7-4da0-47d4-b02a-ff2edb6a74b6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Progress",
+                    "type": "Button",
+                    "id": "62a743f6-a8c9-40a5-ae86-fc415374ec92",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6a4df825-08e7-43c9-81a1-4fa50ae474ae",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c9f777e5-3fd7-4934-8830-45ab82858dc8",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Progress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
