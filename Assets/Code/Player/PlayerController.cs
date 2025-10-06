@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using Events;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerControls controls = default;

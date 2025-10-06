@@ -1,13 +1,15 @@
 using UnityEngine;
 using UnityEngine.Events;
-
-[CreateAssetMenu(fileName = "IntEventSO", menuName = "EventSOs/IntEventSO")]
-public class IntEventSO : ScriptableObject
+namespace Events
 {
-    public UnityAction<int> OnEventRaised;
-
-    public void RaiseEvent(int value)
+    [CreateAssetMenu(fileName = "IntEventSO", menuName = "EventSOs/IntEventSO")]
+    public class IntEventSO : ScriptableObject
     {
-        OnEventRaised?.Invoke(value);
+        public UnityAction<int> OnEventRaised;
+
+        public void RaiseEvent(int value)
+        {
+            OnEventRaised?.Invoke(value);
+        }
     }
 }

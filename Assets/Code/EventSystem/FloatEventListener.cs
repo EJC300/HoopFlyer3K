@@ -1,22 +1,24 @@
 using UnityEngine;
 using UnityEngine.Events;
-
-public class FloatEventListener : MonoBehaviour
+namespace Events
 {
-    [SerializeField] FloatEventSO floatEventChannel = default;
+    public class FloatEventListener : MonoBehaviour
+    {
+        [SerializeField] FloatEventSO floatEventChannel = default;
 
-    [SerializeField] UnityEvent<float> OnEventRaised;
+        [SerializeField] UnityEvent<float> OnEventRaised;
 
-    public void OnEnable()
-    {
-        floatEventChannel.OnEventRaised += Respond;
-    }
-    public void OnDisable()
-    {
-        floatEventChannel.OnEventRaised -= Respond;
-    }
-    public void Respond(float value)
-    {
-        OnEventRaised?.Invoke(value);
+        public void OnEnable()
+        {
+            floatEventChannel.OnEventRaised += Respond;
+        }
+        public void OnDisable()
+        {
+            floatEventChannel.OnEventRaised -= Respond;
+        }
+        public void Respond(float value)
+        {
+            OnEventRaised?.Invoke(value);
+        }
     }
 }

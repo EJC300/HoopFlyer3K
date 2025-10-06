@@ -5,89 +5,91 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 using UnityEngine.PlayerLoop;
-
-[CreateAssetMenu(fileName = "PlayerControlsGameplay", menuName = "EventSOs/PlayerControlsGameplay")]
-public class PlayerControls : ScriptableObject, PlayerInput.IPlayerGameplayActions
+namespace Events
 {
-    public PlayerInput playerInput;
- 
-    
-    public UnityAction<Vector2> MouseEventMove = delegate { };
-
-    public UnityAction MouseEventFire = delegate { };
-
-    public UnityAction MouseEventFireCancled = delegate { };
-
-    public UnityAction MouseEventBoost = delegate { };
-
-    public void OnMouseBoost(InputAction.CallbackContext context)
+    [CreateAssetMenu(fileName = "PlayerControlsGameplay", menuName = "EventSOs/PlayerControlsGameplay")]
+    public class PlayerControls : ScriptableObject, PlayerInput.IPlayerGameplayActions
     {
-        if (context.performed)
-        {
-            MouseEventBoost.Invoke();
-        }
-    }
+        public PlayerInput playerInput;
 
 
-    public void OnMouseFire(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            MouseEventFire.Invoke();
-        }
-        
-            
-       
-      
+        public UnityAction<Vector2> MouseEventMove = delegate { };
 
-    }
-    public void OnMouseFireOff(InputAction.CallbackContext context)
-    {
-        if (context.canceled)
+        public UnityAction MouseEventFire = delegate { };
+
+        public UnityAction MouseEventFireCancled = delegate { };
+
+        public UnityAction MouseEventBoost = delegate { };
+
+        public void OnMouseBoost(InputAction.CallbackContext context)
         {
-            MouseEventFireCancled.Invoke();
+            if (context.performed)
+            {
+                MouseEventBoost.Invoke();
+            }
         }
 
 
+        public void OnMouseFire(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                MouseEventFire.Invoke();
+            }
 
 
 
-    }
-    public void OnMouseMove(InputAction.CallbackContext context)
-    {
-      
+
+
+        }
+        public void OnMouseFireOff(InputAction.CallbackContext context)
+        {
+            if (context.canceled)
+            {
+                MouseEventFireCancled.Invoke();
+            }
+
+
+
+
+
+        }
+        public void OnMouseMove(InputAction.CallbackContext context)
+        {
+
             MouseEventMove.Invoke(context.ReadValue<Vector2>());
-        
-       
-    }
-  
-    private void OnEnable()
-    {
-        if (playerInput == null)
-        {
-         
-            playerInput = new PlayerInput();
-            playerInput.Enable();
-            playerInput.PlayerGameplay.MouseFire.performed+= OnMouseFire;
-            playerInput.PlayerGameplay.MouseFire.canceled+= OnMouseFireOff;
-            playerInput.PlayerGameplay.MouseMove.performed += OnMouseMove;
 
 
         }
-       
-      Debug.Log(playerInput.PlayerGameplay.enabled);
-        
+
+        private void OnEnable()
+        {
+            if (playerInput == null)
+            {
+
+                playerInput = new PlayerInput();
+                playerInput.Enable();
+                playerInput.PlayerGameplay.MouseFire.performed += OnMouseFire;
+                playerInput.PlayerGameplay.MouseFire.canceled += OnMouseFireOff;
+                playerInput.PlayerGameplay.MouseMove.performed += OnMouseMove;
+
+
+            }
+
+            Debug.Log(playerInput.PlayerGameplay.enabled);
+
+        }
+
+        public void OnDisable()
+        {
+            playerInput.PlayerGameplay.MouseFire.performed -= OnMouseFire;
+            playerInput.PlayerGameplay.MouseFire.canceled -= OnMouseFireOff;
+            playerInput.PlayerGameplay.MouseMove.performed -= OnMouseMove;
+            playerInput.Disable();
+
+        }
+
+
+
     }
-  
-    public void OnDisable()
-    {
-        playerInput.PlayerGameplay.MouseFire.performed -= OnMouseFire;
-        playerInput.PlayerGameplay.MouseFire.canceled -= OnMouseFireOff;
-        playerInput.PlayerGameplay.MouseMove.performed -= OnMouseMove;
-        playerInput.Disable();
-        
-    }
-
-
-
 }

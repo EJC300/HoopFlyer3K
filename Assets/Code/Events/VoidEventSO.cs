@@ -1,14 +1,17 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-
-[CreateAssetMenu(fileName = "VoidEventSO", menuName = "EventSOs/VoidEventSO")]
-public class VoidEventSO : ScriptableObject
+namespace Events
 {
-    public UnityAction OnEventRaise = delegate { };
+    [CreateAssetMenu(fileName = "VoidEventSO", menuName = "EventSOs/VoidEventSO")]
 
-    public void RaiseEvent()
+    public class VoidEventSO : ScriptableObject
     {
-        OnEventRaise?.Invoke();
+        public UnityAction OnEventRaise = delegate { };
+
+        public void RaiseEvent()
+        {
+            OnEventRaise?.Invoke();
+        }
     }
 }

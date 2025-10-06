@@ -3,29 +3,34 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-[CreateAssetMenu(fileName = "LoadLevelSO", menuName = "EventSOs/LoadLevelSO")]
-public class LoadLevelSO : ScriptableObject
+
+namespace Events
 {
-    public Scene sceneToLoad;
-
-    public UnityAction<Scene> OnLoadedScene;
-
-  
-
-    public void RaiseEvent(Scene scene)
+    [CreateAssetMenu(fileName = "LoadLevelSO", menuName = "EventSOs/LoadLevelSO")]
+    public class LoadLevelSO : ScriptableObject
     {
-        try {
-            OnLoadedScene?.Invoke(scene);
-        }
-        catch
+        public Scene sceneToLoad;
+
+        public UnityAction<Scene> OnLoadedScene;
+
+
+
+        public void RaiseEvent(Scene scene)
         {
+            try
+            {
+                OnLoadedScene?.Invoke(scene);
+            }
+            catch
+            {
 
-       
+
+            }
+
+
         }
-        
-        
-     }
 
 
 
+    }
 }

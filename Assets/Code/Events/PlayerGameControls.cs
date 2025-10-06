@@ -4,20 +4,24 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 using UnityEngine.PlayerLoop;
-[CreateAssetMenu(fileName = "PlayerGameControls", menuName = "EventSOs/PlayerGameControls")]
-public class PlayerGameControls : ScriptableObject, PlayerInput.IMenusActions
+using Events;
+namespace Input
 {
-    public UnityAction Progress = delegate { };
-
-    public UnityAction Back = delegate { };
-
-    public void OnBack(InputAction.CallbackContext context)
+    [CreateAssetMenu(fileName = "PlayerGameControls", menuName = "EventSOs/PlayerGameControls")]
+    public class PlayerGameControls : ScriptableObject, PlayerInput.IMenusActions
     {
-        Back?.Invoke();
-    }
+        public UnityAction Progress = delegate { };
 
-    public void OnProgress(InputAction.CallbackContext context)
-    {
-        Progress?.Invoke();
+        public UnityAction Back = delegate { };
+
+        public void OnBack(InputAction.CallbackContext context)
+        {
+            Back?.Invoke();
+        }
+
+        public void OnProgress(InputAction.CallbackContext context)
+        {
+            Progress?.Invoke();
+        }
     }
 }

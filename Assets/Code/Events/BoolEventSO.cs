@@ -1,13 +1,15 @@
 using UnityEngine;
 using UnityEngine.Events;
-
-[CreateAssetMenu(fileName = "BoolEventSO", menuName = "EventSOs/BoolEventSO")]
-public class BoolEventSO : ScriptableObject
+namespace Events
 {
-    public UnityAction<bool> OnEventRaised;
-
-    public void RaiseEvent(bool value)
+    [CreateAssetMenu(fileName = "BoolEventSO", menuName = "EventSOs/BoolEventSO")]
+    public class BoolEventSO : ScriptableObject
     {
-        OnEventRaised?.Invoke(value);
+        public UnityAction<bool> OnEventRaised;
+
+        public void RaiseEvent(bool value)
+        {
+            OnEventRaised?.Invoke(value);
+        }
     }
 }

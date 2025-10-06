@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 240185459}
   - component: {fileID: 240185461}
   - component: {fileID: 240185460}
+  - component: {fileID: 240185462}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -166,6 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartGameListener: {fileID: 240185461}
+  SpawnEntities: {fileID: 240185461}
+  SpawnRate: 0
 --- !u!114 &240185461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +224,58 @@ MonoBehaviour:
       - m_Target: {fileID: 6317851741113535010}
         m_TargetAssemblyTypeName: PlayerBlasters, Assembly-CSharp
         m_MethodName: InitializeBlasters
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1581646316}
+        m_TargetAssemblyTypeName: LevelGenerator, SpawningAndEnemies
+        m_MethodName: InitializeLevelGenerator
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &240185462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240185458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cb3b508fe190843846e35243640d24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voidEventChannel: {fileID: 11400000, guid: 93386d082f458b74e83f4c8a30781ba3, type: 2}
+  OnEventRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1581646316}
+        m_TargetAssemblyTypeName: LevelGenerator, SpawningAndEnemies
+        m_MethodName: SpawnEnemy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1581646316}
+        m_TargetAssemblyTypeName: LevelGenerator, SpawningAndEnemies
+        m_MethodName: SpawnHoop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -467,6 +522,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 240185459}
+  - {fileID: 1581646315}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &700297753
@@ -762,6 +818,57 @@ Skybox:
   m_GameObject: {fileID: 1577138219}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: 8108014ed83771e4699bf0774f1bde20, type: 2}
+--- !u!1 &1581646314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1581646315}
+  - component: {fileID: 1581646316}
+  m_Layer: 0
+  m_Name: LevelGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1581646315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581646314}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 471750290}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1581646316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581646314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 536e7e3e119f35746b5992f62437e02b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hoop: {fileID: 2147283973532782450, guid: 4e2e689c766b4e541aeced8b5ba5a749, type: 3}
+  Enemy: {fileID: 2147283973532782450, guid: 4e2e689c766b4e541aeced8b5ba5a749, type: 3}
+  Boundary: {x: 0, y: 0, z: 0}
+  EnemySpawnRate: 0.8
+  HoopSpawnRate: 0.2
+  SpawnerAmount: 25
+  SpawnerPositionSpacing: 0.5
 --- !u!33 &250996394338717229
 MeshFilter:
   m_ObjectHideFlags: 0

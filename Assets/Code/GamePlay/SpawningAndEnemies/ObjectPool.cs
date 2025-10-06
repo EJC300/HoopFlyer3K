@@ -1,0 +1,67 @@
+using System.Collections.Generic;
+using UnityEngine;
+namespace SpawningAndEnemies
+{
+    public class ObjectPool : MonoBehaviour
+    {
+        [SerializeField] private GameObject ObjectToSpawn;
+        [SerializeField] private int SpawnAmount;
+
+        
+       [SerializeField] private List<Spawn> Spawns = new();
+
+        public void SetOBjectToSpawn(GameObject spawn)
+        {
+                if(SpawnAmount < 1)
+                {
+                 SpawnAmount = 100;
+                }
+                ObjectToSpawn = spawn;
+            
+        }
+        private void Start()
+        {
+            for (int i = 0; i < SpawnAmount; i++)
+            {
+                GameObject spawn = Instantiate(ObjectToSpawn);
+
+                Spawns.Add(spawn.GetComponent<Spawn>());
+                spawn.SetActive(false);
+            }
+        }
+
+        public Spawn GetInActiveSpawn()
+        {
+            for (int i = 0; i < Spawns.Count; i++)
+            {
+                if (!Spawns[i].gameObject.activeInHierarchy)
+                {
+                    return Spawns[i];
+                }
+            }
+            return null;
+        }
+
+        public void SetSpawnActive()
+        {
+            for (int i = 0; i < Spawns.Count; i++)
+            {
+                if (!Spawns[i].gameObject.activeInHierarchy)
+                {
+                    Spawns[i].gameObject.SetActive(true);
+                }
+            }
+        }
+
+        public void SetSpawnInActive()
+        {
+            for (int i = 0; i < Spawns.Count; i++)
+            {
+                if (Spawns[i].gameObject.activeInHierarchy)
+                {
+                    Spawns[i].gameObject.SetActive(false);
+                }
+            }
+        }
+    }
+}

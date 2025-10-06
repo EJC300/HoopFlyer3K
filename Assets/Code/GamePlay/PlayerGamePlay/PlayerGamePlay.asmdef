@@ -1,0 +1,17 @@
+{
+    "name": "PlayerGamePlay",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2eded2df694ac2c44b9ecbe4b4825923",
+        "GUID:5a550a526683f3446a5c7238608a39bf"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
