@@ -12,24 +12,15 @@ namespace PlayerGamePlay {
         private void Start()
         {
             StartGameListener.Respond();
-            SpawnEntities.Respond();
         }
         
         private void Update()
         {
-          
-                
+
+            SpawnEntities.Respond();
             
         }
-        public void TestMYButt()
-        {
-            Debug.Log("BUTT");
-        }
-        public IEnumerator SpawnEntitiesByRate()
-        {
-            yield return new WaitForSeconds(SpawnRate);
-           
-            
-        }
+       
+     
     }
 }

@@ -8,15 +8,15 @@ namespace Events
 
        public UnityEvent OnEventRaised;
 
-        public void OnEnable()
+        private void OnEnable()
         {
-            voidEventChannel.OnEventRaise += Respond;
+            voidEventChannel.OnEventRaised += Respond;
         }
-        public void OnDisable()
+        private void OnDisable()
         {
-            voidEventChannel.OnEventRaise -= Respond;
+            voidEventChannel.OnEventRaised -= Respond;
         }
-        public void Respond()
+       public void Respond()
         {
             OnEventRaised?.Invoke();
         }

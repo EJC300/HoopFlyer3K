@@ -43,7 +43,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 13
-  m_BakeOnSceneLoad: 0
+  m_BakeOnSceneLoad: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -93,9 +93,10 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 1932b1c0f87254a4a9ce864f845de39e,
+  m_LightingDataAsset: {fileID: 112000000, guid: 7f3e174bf5bc5444099559c8c27dcaf4,
     type: 2}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: ffa1945785f267e49a886231ad369ddb,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -131,7 +132,6 @@ GameObject:
   - component: {fileID: 240185459}
   - component: {fileID: 240185461}
   - component: {fileID: 240185460}
-  - component: {fileID: 240185462}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -236,46 +236,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1581646316}
         m_TargetAssemblyTypeName: LevelGenerator, SpawningAndEnemies
         m_MethodName: InitializeLevelGenerator
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &240185462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240185458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77cb3b508fe190843846e35243640d24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voidEventChannel: {fileID: 11400000, guid: 93386d082f458b74e83f4c8a30781ba3, type: 2}
-  OnEventRaised:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1581646316}
-        m_TargetAssemblyTypeName: LevelGenerator, SpawningAndEnemies
-        m_MethodName: SpawnEnemy
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1581646316}
-        m_TargetAssemblyTypeName: LevelGenerator, SpawningAndEnemies
-        m_MethodName: SpawnHoop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -572,7 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 2423371750103964497}
   PlayerShip: {fileID: 8128560114638711462}
-  CameraChaseSpeed: 4
+  CameraChaseSpeed: 1.2
   CameraLookSpeed: 2
   target: {x: 0, y: 1, z: -25}
 --- !u!1 &1223845868
@@ -862,6 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 536e7e3e119f35746b5992f62437e02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnCount: 100
   Hoop: {fileID: 2147283973532782450, guid: 4e2e689c766b4e541aeced8b5ba5a749, type: 3}
   Enemy: {fileID: 2147283973532782450, guid: 4e2e689c766b4e541aeced8b5ba5a749, type: 3}
   Boundary: {x: 0, y: 0, z: 0}
@@ -1598,6 +1559,7 @@ MonoBehaviour:
   ObjectToSpawn: {fileID: 3376188281046393429, guid: e6877376cfa762a4c8482465aa3489ab,
     type: 3}
   SpawnAmount: 25
+  Spawns: []
 --- !u!1 &8052623516876385929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,6 +1634,7 @@ MonoBehaviour:
   ObjectToSpawn: {fileID: 3376188281046393429, guid: e6877376cfa762a4c8482465aa3489ab,
     type: 3}
   SpawnAmount: 25
+  Spawns: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

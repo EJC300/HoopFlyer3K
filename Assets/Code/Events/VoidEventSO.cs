@@ -7,11 +7,11 @@ namespace Events
 
     public class VoidEventSO : ScriptableObject
     {
-        public UnityAction OnEventRaise = delegate { };
+        public UnityAction OnEventRaised;
 
         public void RaiseEvent()
         {
-            OnEventRaise?.Invoke();
+            OnEventRaised?.Invoke();
         }
     }
 }

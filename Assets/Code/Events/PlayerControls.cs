@@ -76,7 +76,7 @@ namespace Events
 
             }
 
-            Debug.Log(playerInput.PlayerGameplay.enabled);
+     
 
         }
 

@@ -22,7 +22,7 @@ namespace SpawningAndEnemies
         public void SpawnObject()
         {
             Spawn obj = pooler.GetInActiveSpawn();
-            Debug.Log("Ass");
+         
            // StartCoroutine(Spawn());
             if (obj != null)
             {

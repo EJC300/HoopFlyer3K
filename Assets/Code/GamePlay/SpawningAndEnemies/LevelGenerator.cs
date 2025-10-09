@@ -38,8 +38,7 @@ public class LevelGenerator : MonoBehaviour
     }
     private void Update()
     {
-        SetSpawnHoop();
-        SetSpawnEnemy();
+        
     }
     void LayoutSpawners()
     {
@@ -70,14 +69,14 @@ public class LevelGenerator : MonoBehaviour
        
     }
     
-    void SetSpawnHoop()
+   public void SetSpawnHoop()
     {
         int randomChoice = Random.Range(0, spawners.Count);
         spawners[randomChoice].Pooler.SetOBjectToSpawn(Hoop);
         spawners[randomChoice].SpawnObject();
 
     }
-    void SetSpawnEnemy()
+   public void SetSpawnEnemy()
     {
         int randomChoice = Random.Range(0, spawners.Count);
         spawners[randomChoice].Pooler.SetOBjectToSpawn(Enemy);
