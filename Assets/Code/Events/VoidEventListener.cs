@@ -4,9 +4,9 @@ namespace Events
 {
     public class VoidEventListener : MonoBehaviour
     {
-        [SerializeField] VoidEventSO voidEventChannel = default;
+       public VoidEventSO voidEventChannel = default;
 
-        [SerializeField] UnityEvent OnEventRaised;
+       public UnityEvent OnEventRaised;
 
         public void OnEnable()
         {

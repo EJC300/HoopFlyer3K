@@ -22,8 +22,9 @@ namespace SpawningAndEnemies
         public void SpawnObject()
         {
             Spawn obj = pooler.GetInActiveSpawn();
-            StartCoroutine(Spawn());
-            if (obj != null && Fire)
+            Debug.Log("Ass");
+           // StartCoroutine(Spawn());
+            if (obj != null)
             {
 
                 obj.gameObject.SetActive(true);

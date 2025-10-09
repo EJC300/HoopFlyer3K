@@ -1,27 +1,35 @@
 using UnityEngine;
 using Events;
 using System.Collections;
+using UnityEngine.Windows;
 
 namespace PlayerGamePlay {
     public class GameManager : MonoBehaviour
     {
-        [SerializeField] private VoidEventListener StartGameListener;
-        [SerializeField] private VoidEventListener SpawnEntities;
+        public VoidEventListener StartGameListener;
+        public VoidEventListener SpawnEntities;
         [SerializeField] private float SpawnRate;
         private void Start()
         {
             StartGameListener.Respond();
+            SpawnEntities.Respond();
+        }
+        
+        private void Update()
+        {
+          
+                
             
         }
-        private void LateUpdate()
+        public void TestMYButt()
         {
-            StartCoroutine(SpawnEntitiesByRate());
+            Debug.Log("BUTT");
         }
         public IEnumerator SpawnEntitiesByRate()
         {
             yield return new WaitForSeconds(SpawnRate);
-          
-            SpawnEntities.Respond();
+           
+            
         }
     }
 }

@@ -14,7 +14,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private float HoopSpawnRate;
     [SerializeField] private int SpawnerAmount;
     [SerializeField] private float SpawnerPositionSpacing = 0.5f;
-    [SerializeField] private List<Spawner> spawners = new List<Spawner>();
+     private List<Spawner> spawners = new List<Spawner>();
     //Spawners Reference
     private void OnEnable()
     {
@@ -36,19 +36,23 @@ public class LevelGenerator : MonoBehaviour
             LayoutSpawners();
         
     }
+    private void Update()
+    {
+        SetSpawnHoop();
+        SetSpawnEnemy();
+    }
     void LayoutSpawners()
     {
-        float viewDistance = 100;
+        float viewDistance = 10;
         float offSetX = SpawnerPositionSpacing / Boundary.x;
         float offSetY = SpawnerPositionSpacing / Boundary.y;
-        for (int i = 0; i < Boundary.x; i++)
+        for (int i = 0; i < SpawnCount * 0.5f; i++)
         {
-            for (int j = 0; j < Boundary.y; j++)
+            for (int j = 0; j < SpawnCount * 0.5f; j++)
             {
-                float posX = i + (offSetX + 1);
-                float posY = j + (offSetY + 1);
-                posX *= Random.value;
-                posY *= Random.value;
+                float posX = i * (offSetX + 1);
+                float posY = j * (offSetY + 1);
+               
                 var pos = new Vector3(posX, posY, viewDistance);
 
                
@@ -65,40 +69,22 @@ public class LevelGenerator : MonoBehaviour
         }
        
     }
+    
     void SetSpawnHoop()
     {
         int randomChoice = Random.Range(0, spawners.Count);
-  
-        spawners[randomChoice].Spawn();
+        spawners[randomChoice].Pooler.SetOBjectToSpawn(Hoop);
+        spawners[randomChoice].SpawnObject();
+
     }
     void SetSpawnEnemy()
     {
         int randomChoice = Random.Range(0, spawners.Count);
         spawners[randomChoice].Pooler.SetOBjectToSpawn(Enemy);
-        spawners[randomChoice].Spawn();
+        spawners[randomChoice].SpawnObject();
     }
-    public void SpawnEnemy()
-    {
-        if (StartGame)
-        {
-            StartCoroutine(SpawnEnemyByRate());
-        }
-    }
-    public void SpawnHoop()
-    {
-        if (StartGame)
-        {
-            StartCoroutine(SpawnHoopByRate());
-        }
-    }
-    IEnumerator SpawnHoopByRate()
-    {
-        yield return new WaitForSeconds(HoopSpawnRate);
-        SetSpawnHoop();
-    }
-    IEnumerator SpawnEnemyByRate()
-    {
-        yield return new WaitForSeconds(EnemySpawnRate);
-        SetSpawnEnemy();
-    }
+   
+
+   
+
 }
