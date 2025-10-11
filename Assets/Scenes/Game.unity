@@ -823,6 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 536e7e3e119f35746b5992f62437e02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxSpawnRate: 5
   Hoop: {fileID: 2147283973532782450, guid: 4e2e689c766b4e541aeced8b5ba5a749, type: 3}
   Enemy: {fileID: 2147283973532782450, guid: 4e2e689c766b4e541aeced8b5ba5a749, type: 3}
   Boundary: {x: 0, y: 0, z: 0}
@@ -887,6 +888,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8128560114638711462}
+  - component: {fileID: 8128560114638711463}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -1109,6 +1111,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2671499219335520767}
+  - component: {fileID: 3339633315199744840}
+  - component: {fileID: 3339633315199744839}
+  - component: {fileID: 3339633315199744838}
   m_Layer: 0
   m_Name: Flyer
   m_TagString: Untagged
@@ -1116,6 +1121,75 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3339633315199744838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3339633315199744837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66a0cd9c4a02bd439c83891a3c3a324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerHusk: {fileID: 0}
+--- !u!114 &3339633315199744839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3339633315199744837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eba67a53b5fddec4eb0bd1e2608e1db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatEventChannel: {fileID: 11400000, guid: 47bf01cf6e9fcfd44aacedbed852bc3c, type: 2}
+  OnEventRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3339633315199744840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3339633315199744837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eba67a53b5fddec4eb0bd1e2608e1db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatEventChannel: {fileID: 11400000, guid: 52138ca2d292c3a4597cdd163b1e06e0, type: 2}
+  OnEventRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 296798817588386239}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3350387389719043110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,6 +1449,8 @@ GameObject:
   - component: {fileID: 6317851741113535008}
   - component: {fileID: 6317851741113535010}
   - component: {fileID: 6317851741113535009}
+  - component: {fileID: 6317851741113535012}
+  - component: {fileID: 6317851741113535011}
   m_Layer: 0
   m_Name: PlayerRig
   m_TagString: Untagged
@@ -1426,6 +1502,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controls: {fileID: 11400000, guid: d5e718bfcb2acaa49935fd402b4e6808, type: 2}
+--- !u!114 &6317851741113535011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255052179165248011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e1243f62a68a346814b9e175649ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6317851741113535012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255052179165248011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add478ed0de43f349a849347967ba014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
+  DamageListener: {fileID: 3339633315199744840}
+  DeactivatePlayerListener: {fileID: 8128560114638711463}
 --- !u!4 &6465066195930386351
 Transform:
   m_ObjectHideFlags: 0
@@ -1636,6 +1739,46 @@ Transform:
   - {fileID: 6995571932210774077}
   m_Father: {fileID: 2423371750103964497}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8128560114638711463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296798817588386239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cb3b508fe190843846e35243640d24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voidEventChannel: {fileID: 11400000, guid: ff760922dcce8544ab8fd19c9c7f49aa, type: 2}
+  OnEventRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3339633315199744838}
+        m_TargetAssemblyTypeName: PlayerGamePlay.PlayerDestructor, PlayerGamePlay
+        m_MethodName: DisablePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 700297755}
+        m_TargetAssemblyTypeName: ChaseCamera, Assembly-CSharp
+        m_MethodName: DisableCamera
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!33 &8319133351638363333
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -8,11 +8,16 @@ public class ChaseCamera : MonoBehaviour
     [SerializeField] private float CameraChaseSpeed;
     [SerializeField] private float CameraLookSpeed;
     private bool StartGame = false;
+    private bool canChase;
     [SerializeField] Vector3 target;
     public void InitalizeCamera()
     {
         StartGame = true;
         
+    }
+    public void DisableCamera()
+    {
+      canChase = false;
     }
     void ChaseCameraMove()
     {
@@ -30,7 +35,7 @@ public class ChaseCamera : MonoBehaviour
     
     private void Update()
     {
-        if (StartGame)
+        if (StartGame && canChase)
         {
             ChaseCameraMove();
             LookAtCaret();

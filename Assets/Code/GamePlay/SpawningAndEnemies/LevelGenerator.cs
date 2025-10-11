@@ -6,7 +6,7 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
      private bool StartGame = false;
-  
+    [SerializeField] private float MaxSpawnRate = 5;
     
     [SerializeField] private GameObject Hoop;
     [SerializeField] private GameObject Enemy;
