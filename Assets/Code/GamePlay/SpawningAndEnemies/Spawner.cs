@@ -12,19 +12,21 @@ namespace SpawningAndEnemies
         private void Start()
         {
             pooler = GetComponent<ObjectPool>();
-            if (spawnRate < 1)
+            if (spawnRate < 0.1)
             {
 
-                spawnRate = Random.value;
+                spawnRate = Random.value * 10;
+                spawnRate = Mathf.Clamp(spawnRate,5,spawnRate);
             }
+            StartCoroutine(Spawn());
         }
 
         public void SpawnObject()
         {
             Spawn obj = pooler.GetInActiveSpawn();
          
-           // StartCoroutine(Spawn());
-            if (obj != null)
+           
+            if (obj != null && Fire)
             {
 
                 obj.gameObject.SetActive(true);
@@ -37,9 +39,12 @@ namespace SpawningAndEnemies
         }
         public IEnumerator Spawn()
         {
-            yield return new WaitForSeconds(spawnRate);
+            while (true)
+            {
+                yield return new WaitForSeconds(spawnRate);
 
-            Fire = true;
+                Fire = true;
+            }
         }
 
     }

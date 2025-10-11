@@ -65,8 +65,8 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        var viewDistance = 100;
-        Boundary = new Vector3(Screen.width, Screen.height, viewDistance);
+        var viewDistance = 150;
+        Boundary = new Vector3(Screen.width, Screen.height, viewDistance );
         Boundary = Camera.main.ScreenToWorldPoint(Boundary);
     }
     private void Update()

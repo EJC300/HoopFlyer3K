@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7479185341388725025}
   - component: {fileID: 1667624520350981021}
+  - component: {fileID: 8155209904315847531}
   m_Layer: 0
   m_Name: Hoop
   m_TagString: Untagged
@@ -45,7 +46,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400fc1569ea93fb4b850eba3997c822c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deactivateTime: 5
+  deactivateTime: 125
+--- !u!114 &8155209904315847531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147283973532782450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8fdb7387227fb4295cec9d289377c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxSpeed: 1
 --- !u!1 &2270760786340706902
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +88,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.13052624, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 275, y: 275, z: 275}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7479185341388725025}

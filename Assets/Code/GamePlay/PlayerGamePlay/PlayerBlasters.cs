@@ -7,6 +7,7 @@ namespace PlayerGamePlay
     {
         [SerializeField] private PlayerControls controls = default;
         private bool StartGame = false;
+        private bool fire = false;
         private Blasters blasters;
         public void InitializeBlasters()
         {
@@ -18,6 +19,10 @@ namespace PlayerGamePlay
             blasters = GetComponent<Blasters>();
         }
 
+        private void Update()
+        {
+            blasters.Fire(fire);
+        }
         private void OnEnable()
         {
             controls.MouseEventFire += Fire;
@@ -31,17 +36,18 @@ namespace PlayerGamePlay
         }
         void Fire()
         {
-            if (StartGame)
+            if (StartGame && !fire)
             {
-                blasters.Fire(true);
+                fire = true;
+               
             }
         }
         void StopFire()
         {
-            if (StartGame)
+            if (StartGame && fire)
             {
 
-                blasters.Fire(false);
+              fire= false;
             }
         }
 
