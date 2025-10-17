@@ -826,11 +826,13 @@ MonoBehaviour:
   MaxSpawnRate: 5
   Hoop: {fileID: 2147283973532782450, guid: 4e2e689c766b4e541aeced8b5ba5a749, type: 3}
   Enemy: {fileID: 2147283973532782450, guid: 4e2e689c766b4e541aeced8b5ba5a749, type: 3}
+  Asteroid: {fileID: 8216723626328952759, guid: 23cb787e94478124d917c2a457435471,
+    type: 3}
   Boundary: {x: 0, y: 0, z: 0}
   EnemySpawnRate: 0.1
   HoopSpawnRate: 5
   SpawnerAmount: 25
-  SpawnerPositionSpacing: 8
+  SpawnerPositionSpacing: 10
 --- !u!114 &1581646317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,6 +864,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1581646316}
         m_TargetAssemblyTypeName: LevelGenerator, SpawningAndEnemies
         m_MethodName: SetSpawnHoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1581646316}
+        m_TargetAssemblyTypeName: LevelGenerator, SpawningAndEnemies
+        m_MethodName: SetSpawnAsteroid
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -979,7 +993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0f8617fb1175049b6e0b4571e9861e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 0
+  MoveSpeed: 0.025
 --- !u!33 &1578048754225346671
 MeshFilter:
   m_ObjectHideFlags: 0

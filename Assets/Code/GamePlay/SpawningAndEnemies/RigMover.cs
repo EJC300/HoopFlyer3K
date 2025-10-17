@@ -15,7 +15,7 @@ public class RigMover : MonoBehaviour
     {
         if (StartGame)
         {
-            transform.Translate(Vector3.forward * MoveSpeed);
+            transform.Translate(Vector3.forward * MoveSpeed * Time.deltaTime);
         }
     }
 

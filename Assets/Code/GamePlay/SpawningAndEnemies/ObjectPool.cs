@@ -4,7 +4,7 @@ namespace SpawningAndEnemies
 {
     public class ObjectPool : MonoBehaviour
     {
-        [SerializeField] private GameObject ObjectToSpawn;
+        public GameObject ObjectToSpawn;
         [SerializeField] private int SpawnAmount;
 
         
@@ -19,15 +19,42 @@ namespace SpawningAndEnemies
                 ObjectToSpawn = spawn;
             
         }
-        private void Start()
+        
+        public void InstanceNewObject()
         {
             for (int i = 0; i < SpawnAmount; i++)
             {
                 GameObject spawn = Instantiate(ObjectToSpawn);
-
+                spawn.name = spawn.name + i;
                 Spawns.Add(spawn.GetComponent<Spawn>());
                 spawn.SetActive(false);
             }
+        }
+        private void Start()
+        {
+          InstanceNewObject();
+        }
+
+
+        public Spawn GetSpawnAtIndex(int index)
+        {
+            return Spawns[index];
+        }
+
+        public Spawn GetTypeOfSpawn(Spawn spawn)
+        {
+            for(int i = 0;i < Spawns.Count;i++)
+            {
+                if (Spawns[i].gameObject.name + i == spawn.gameObject.name + i)
+                {
+                    if (!Spawns[i].gameObject.activeInHierarchy)
+                    {
+                        return Spawns[i];
+                    }
+                }
+            
+            }
+            return null;
         }
 
         public Spawn GetInActiveSpawn()

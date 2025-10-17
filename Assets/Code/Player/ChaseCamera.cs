@@ -13,6 +13,7 @@ public class ChaseCamera : MonoBehaviour
     public void InitalizeCamera()
     {
         StartGame = true;
+        canChase = true;
         
     }
     public void DisableCamera()
@@ -24,7 +25,8 @@ public class ChaseCamera : MonoBehaviour
 
         var moveTarget = PlayerShip.position + target;
 
-        transform.position = QuasarMath.SmoothDamp(transform.position ,moveTarget,Time.deltaTime,CameraChaseSpeed);
+        //transform.position = QuasarMath.SmoothDamp(transform.position ,moveTarget,Time.deltaTime,CameraChaseSpeed);
+        transform.position = moveTarget;
     }
     void LookAtCaret()
     {
@@ -33,7 +35,7 @@ public class ChaseCamera : MonoBehaviour
         transform.rotation = lookAt;
     }
     
-    private void Update()
+    private void LateUpdate()
     {
         if (StartGame && canChase)
         {

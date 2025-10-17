@@ -10,6 +10,7 @@ public class LevelGenerator : MonoBehaviour
     
     [SerializeField] private GameObject Hoop;
     [SerializeField] private GameObject Enemy;
+    [SerializeField] private GameObject Asteroid;
     [SerializeField] private Vector3 Boundary;
     [SerializeField] private float EnemySpawnRate;
     [SerializeField] private float HoopSpawnRate;
@@ -68,7 +69,9 @@ public class LevelGenerator : MonoBehaviour
                 obj.AddComponent<Spawner>();
                 obj.AddComponent<ObjectPool>();
                 obj.GetComponent<ObjectPool>().SetOBjectToSpawn(Hoop);
-                
+                obj.GetComponent<ObjectPool>().InstanceNewObject();
+                obj.GetComponent<ObjectPool>().SetOBjectToSpawn(Asteroid);
+                obj.GetComponent<ObjectPool>().InstanceNewObject();
                 spawners.Add(obj.GetComponent<Spawner>());
 
                 if(currentCount > maxCount)
@@ -80,24 +83,36 @@ public class LevelGenerator : MonoBehaviour
         
    
         }
-       
+  
     }
     
    public void SetSpawnHoop()
     {
         int randomChoice = Random.Range(0, spawners.Count);
-        spawners[randomChoice].Pooler.SetOBjectToSpawn(Hoop);
-        spawners[randomChoice].SpawnObject();
+
+        spawners[randomChoice].SpawnObjectOfType(Hoop.GetComponent<Spawn>());
+       // spawners[randomChoice].SpawnObject();
+        
 
     }
    public void SetSpawnEnemy()
     {
-        int randomChoice = Random.Range(0, spawners.Count);
-        spawners[randomChoice].Pooler.SetOBjectToSpawn(Enemy);
-        spawners[randomChoice].SpawnObject();
-    }
-   
+            int randomChoice = Random.Range(0, spawners.Count);
 
+        spawners[randomChoice].SpawnObjectOfType(Asteroid.GetComponent<Spawn>());
+       // spawners[randomChoice].SpawnObject();
+        
+    }
+
+    public void SetSpawnAsteroid()
+    {
+           int randomChoice = Random.Range(0, spawners.Count);
+
+        spawners[randomChoice].SpawnObjectOfType(Asteroid.GetComponent<Spawn>());
+        //spawners[randomChoice].SpawnObject();
+        
+ 
+    }
    
 
 }

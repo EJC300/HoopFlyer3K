@@ -21,6 +21,20 @@ namespace SpawningAndEnemies
             StartCoroutine(Spawn());
         }
 
+        public void SpawnObjectOfType(Spawn spawn)
+        {
+            Spawn obj = pooler.GetTypeOfSpawn(spawn);
+          
+            if (obj != null && Fire)
+            {
+
+                obj.gameObject.SetActive(true);
+                obj.transform.position = transform.position;
+                obj.transform.rotation = transform.rotation;
+                Fire = false;
+            }
+        }
+
         public void SpawnObject()
         {
             Spawn obj = pooler.GetInActiveSpawn();
