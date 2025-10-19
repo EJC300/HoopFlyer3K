@@ -37,7 +37,7 @@ public class ChaseCamera : MonoBehaviour
     
     private void LateUpdate()
     {
-        if (StartGame && canChase)
+        if (StartGame && canChase && PlayerShip != null)
         {
             ChaseCameraMove();
             LookAtCaret();

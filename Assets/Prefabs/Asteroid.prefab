@@ -121,7 +121,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.7427612
+  m_Radius: 0.93
   m_Center: {x: 0.027855879, y: -0.31591156, z: 0.033164863}
 --- !u!114 &8403439557132646811
 MonoBehaviour:
@@ -147,6 +147,8 @@ GameObject:
   - component: {fileID: 1741068647477417218}
   - component: {fileID: 7511761330587542502}
   - component: {fileID: 767481375860536200}
+  - component: {fileID: 5798112121353335471}
+  - component: {fileID: 6111333063027497135}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Untagged
@@ -196,3 +198,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deactivateTime: 120
+--- !u!114 &5798112121353335471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8216723626328952759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e58ef39113a64ca4c9764ebf5cdcfb0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  husk: {fileID: 4201677371433397817, guid: 064315d0fbb0796429a4171f2fa05eb3, type: 3}
+  destroyed: 0
+--- !u!54 &6111333063027497135
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8216723626328952759}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

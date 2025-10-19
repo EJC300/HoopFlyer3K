@@ -25,7 +25,7 @@ namespace SpawningAndEnemies
             for (int i = 0; i < SpawnAmount; i++)
             {
                 GameObject spawn = Instantiate(ObjectToSpawn);
-                spawn.name = spawn.name + i;
+                spawn.name = ObjectToSpawn.name;
                 Spawns.Add(spawn.GetComponent<Spawn>());
                 spawn.SetActive(false);
             }
@@ -45,7 +45,7 @@ namespace SpawningAndEnemies
         {
             for(int i = 0;i < Spawns.Count;i++)
             {
-                if (Spawns[i].gameObject.name + i == spawn.gameObject.name + i)
+                if (Spawns[i].gameObject.name == spawn.gameObject.name)
                 {
                     if (!Spawns[i].gameObject.activeInHierarchy)
                     {
