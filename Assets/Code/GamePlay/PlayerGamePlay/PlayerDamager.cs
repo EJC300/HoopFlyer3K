@@ -7,7 +7,8 @@ public class PlayerDamager : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out PlayerHealthController playerHealthController))
+        Transform obj = other.transform.parent.parent;
+        if ( obj != null && obj.TryGetComponent(out PlayerHealthController playerHealthController))
         {
             playerHealthController.DamageListener.Respond(DamageAmount);
         }

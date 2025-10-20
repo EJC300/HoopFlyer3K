@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 767481375860536200}
   - component: {fileID: 5798112121353335471}
   - component: {fileID: 6111333063027497135}
+  - component: {fileID: 7694594814055530754}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Untagged
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8fdb7387227fb4295cec9d289377c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 245
+  MaxSpeed: 445
 --- !u!114 &767481375860536200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +212,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   husk: {fileID: 4201677371433397817, guid: 064315d0fbb0796429a4171f2fa05eb3, type: 3}
-  destroyed: 0
 --- !u!54 &6111333063027497135
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -239,3 +239,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7694594814055530754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8216723626328952759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11a9be4ebc099ea42ad8b441f3454f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageAmount: 0.5

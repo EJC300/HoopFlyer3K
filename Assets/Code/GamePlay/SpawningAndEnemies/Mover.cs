@@ -7,7 +7,7 @@ public class Mover : MonoBehaviour
     void InitializeMove()
     {
         MaxSpeed = MaxSpeed * Random.value;
-        MaxSpeed = Mathf.Clamp(MaxSpeed, 0.1f, MaxSpeed);
+        MaxSpeed = Mathf.Clamp(MaxSpeed, 0.5f, MaxSpeed);
     }
 
     private void OnEnable()

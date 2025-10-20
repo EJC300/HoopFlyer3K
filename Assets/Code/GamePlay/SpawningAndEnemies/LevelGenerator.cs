@@ -72,6 +72,7 @@ public class LevelGenerator : MonoBehaviour
                 obj.GetComponent<ObjectPool>().InstanceNewObject();
                 obj.GetComponent<ObjectPool>().SetOBjectToSpawn(Asteroid);
                 obj.GetComponent<ObjectPool>().InstanceNewObject();
+                obj.GetComponent<ObjectPool>().SetOBjectToSpawn(Enemy);
                 spawners.Add(obj.GetComponent<Spawner>());
 
                 if(currentCount > maxCount)
@@ -99,7 +100,7 @@ public class LevelGenerator : MonoBehaviour
     {
             int randomChoice = Random.Range(0, spawners.Count);
 
-        spawners[randomChoice].SpawnObjectOfType(Asteroid.GetComponent<Spawn>());
+        spawners[randomChoice].SpawnObjectOfType(Enemy.GetComponent<Spawn>());
        // spawners[randomChoice].SpawnObject();
         
     }

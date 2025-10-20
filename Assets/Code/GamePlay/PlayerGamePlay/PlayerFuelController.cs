@@ -1,16 +1,35 @@
+using Events;
 using UnityEngine;
 
 public class PlayerFuelController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public float Fuel = 100;
+    public FloatEventListener FuelListener;
+    public VoidEventListener DeactivatePlayerListener;
+    private void Update()
     {
-        
+        FuelDrain();
+        if (Fuel < 0)
+        {
+            Fuel = 0;
+            DeactivatePlayerListener.Respond();
+
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Refuel(float amount)
     {
-        
+        Fuel += amount;
+        Debug.Log(Fuel + " " + amount);
+    }
+
+    private void FuelDrain()
+    {
+        if (Fuel > 0.0f)
+        {
+            Fuel -= 01.0f * Time.deltaTime;
+        }
+
+
     }
 }

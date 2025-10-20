@@ -14,7 +14,7 @@ namespace SpawningAndEnemies
         {
                 if(SpawnAmount < 1)
                 {
-                 SpawnAmount = 100;
+                 SpawnAmount = 5;
                 }
                 ObjectToSpawn = spawn;
             
