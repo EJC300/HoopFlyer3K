@@ -829,8 +829,8 @@ MonoBehaviour:
   Asteroid: {fileID: 8216723626328952759, guid: 23cb787e94478124d917c2a457435471,
     type: 3}
   Boundary: {x: 0, y: 0, z: 0}
-  EnemySpawnRate: 0.1
-  HoopSpawnRate: 5
+  EnemySpawnRate: 5
+  HoopSpawnRate: 1
   SpawnerAmount: 25
   SpawnerPositionSpacing: 10
 --- !u!114 &1581646317
@@ -1355,7 +1355,7 @@ GameObject:
   - component: {fileID: 958336552546879121}
   m_Layer: 0
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

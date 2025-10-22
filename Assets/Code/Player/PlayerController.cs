@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         controls.MouseEventMove += OnMouseMove;
+        Cursor.visible = false;
     }
 
     private void OnDisable()
