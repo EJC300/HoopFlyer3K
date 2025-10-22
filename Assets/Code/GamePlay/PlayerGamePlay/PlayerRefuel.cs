@@ -7,10 +7,13 @@ public class PlayerRefuel : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Transform obj = other.transform.parent.parent;
-        if (obj != null && obj.TryGetComponent(out PlayerFuelController playerFuelController))
+        if (other.gameObject.CompareTag("Player"))
         {
-            playerFuelController.FuelListener.Respond(FuelAmount);
+            Transform obj = other.transform.parent.parent;
+            if (obj != null && obj.TryGetComponent(out PlayerFuelController playerFuelController))
+            {
+                playerFuelController.FuelListener.Respond(FuelAmount);
+            }
         }
     }
 }

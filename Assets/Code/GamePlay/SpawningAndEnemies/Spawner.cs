@@ -4,7 +4,7 @@ namespace SpawningAndEnemies
 {
     public class Spawner : MonoBehaviour
     {
-        [SerializeField] private float spawnRate;
+        public float spawnRate;
         private ObjectPool pooler;
         private bool Fire;
         public ObjectPool Pooler {  get { return pooler; } }

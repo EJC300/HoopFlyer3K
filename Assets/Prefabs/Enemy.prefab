@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectToSpawn: {fileID: 3376188281046393429, guid: 0c9eea0e9aef771439872a92248ade07,
     type: 3}
-  SpawnAmount: 50
+  SpawnAmount: 100
   Spawns: []
 --- !u!114 &3867431543230395325
 MonoBehaviour:
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a70dd6ab4e0a7104f9ed86577a4459b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 0.3
   maxDistance: 25
 --- !u!114 &827950236212801975
 MonoBehaviour:
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400fc1569ea93fb4b850eba3997c822c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deactivateTime: 150
+  deactivateTime: 50
 --- !u!114 &3953050395254692619
 MonoBehaviour:
   m_ObjectHideFlags: 0
