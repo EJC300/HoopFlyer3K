@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.08512685, y: 0.5418433, z: 0.107035056}
+  m_LocalScale: {x: 0.08512685, y: 0.5418433, z: 0.17205885}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7319928393409585307}
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ca5a367b89a77984bb8a06d231836a7c, type: 2}
+  - {fileID: 2100000, guid: 2726cb3b0e7456843a123d2a6436f1b3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,9 +122,10 @@ GameObject:
   - component: {fileID: 2619884463797176419}
   - component: {fileID: -4593511723202699668}
   - component: {fileID: 1178293917427975401}
+  - component: {fileID: 6199061645121315771}
   m_Layer: 0
-  m_Name: PlayerBullet
-  m_TagString: PlayerBullet
+  m_Name: EnemyBullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canKillEnemy: 1
-  Speed: 0.6
+  Speed: 0.2
 --- !u!114 &-4593511723202699668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,3 +200,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6199061645121315771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3376188281046393429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11a9be4ebc099ea42ad8b441f3454f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageAmount: 5
