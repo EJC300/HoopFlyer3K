@@ -92,8 +92,11 @@ public class LevelGenerator : MonoBehaviour
         int randomChoice = Random.Range(0, spawners.Count);
         float spawnRate = Random.value * HoopSpawnRate;
         spawnRate = Mathf.Clamp(spawnRate, HoopSpawnRate * 1.5f, HoopSpawnRate);
-        spawners[randomChoice].spawnRate = spawnRate;
-        spawners[randomChoice].SpawnObjectOfType(Hoop.GetComponent<Spawn>());
+        if (spawners[randomChoice].spawnRate != spawnRate)
+        {
+            spawners[randomChoice].spawnRate = spawnRate;
+            spawners[randomChoice].SpawnObjectOfType(Hoop.GetComponent<Spawn>());
+        }
        // spawners[randomChoice].SpawnObject();
         
 
@@ -103,9 +106,11 @@ public class LevelGenerator : MonoBehaviour
         int randomChoice = Random.Range(0, spawners.Count);
         float spawnRate = Random.value * EnemySpawnRate;
         spawnRate = Mathf.Clamp(spawnRate, EnemySpawnRate * 1.5f, EnemySpawnRate);
-        spawners[randomChoice].spawnRate = spawnRate;
-        spawners[randomChoice].SpawnObjectOfType(Enemy.GetComponent<Spawn>());
-   
+        if (spawners[randomChoice].spawnRate != spawnRate)
+        {
+            spawners[randomChoice].spawnRate = spawnRate;
+            spawners[randomChoice].SpawnObjectOfType(Enemy.GetComponent<Spawn>());
+        }
       
     }
 
@@ -114,9 +119,11 @@ public class LevelGenerator : MonoBehaviour
         int randomChoice = Random.Range(0, spawners.Count);
         float spawnRate = Random.value * HoopSpawnRate;
         spawnRate = Mathf.Clamp(spawnRate, HoopSpawnRate * 1.5f, HoopSpawnRate);
-        spawners[randomChoice].spawnRate = spawnRate;
-        spawners[randomChoice].SpawnObjectOfType(Asteroid.GetComponent<Spawn>());
-        
+        if (spawners[randomChoice].spawnRate != spawnRate)
+        {
+            spawners[randomChoice].spawnRate = spawnRate;
+            spawners[randomChoice].SpawnObjectOfType(Asteroid.GetComponent<Spawn>());
+        }
         
  
     }

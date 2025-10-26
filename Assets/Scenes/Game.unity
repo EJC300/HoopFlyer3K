@@ -244,7 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartGameListener: {fileID: 240185461}
   SpawnEntities: {fileID: 1581646317}
-  SpawnRate: 0
+  SpawnRate: 3
 --- !u!1 &379664242
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,10 +829,10 @@ MonoBehaviour:
   Asteroid: {fileID: 8216723626328952759, guid: 23cb787e94478124d917c2a457435471,
     type: 3}
   Boundary: {x: 0, y: 0, z: 0}
-  EnemySpawnRate: 1
-  HoopSpawnRate: 1
-  SpawnerAmount: 25
-  SpawnerPositionSpacing: 10
+  EnemySpawnRate: 5
+  HoopSpawnRate: 3
+  SpawnerAmount: 8
+  SpawnerPositionSpacing: 12
   spawners: []
 --- !u!114 &1581646317
 MonoBehaviour:
