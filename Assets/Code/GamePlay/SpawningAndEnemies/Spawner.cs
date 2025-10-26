@@ -9,6 +9,7 @@ namespace SpawningAndEnemies
         private bool Fire;
         public ObjectPool Pooler {  get { return pooler; } }
 
+     
         private void Start()
         {
             pooler = GetComponent<ObjectPool>();
@@ -16,11 +17,14 @@ namespace SpawningAndEnemies
             {
 
                 spawnRate = Random.value * 10;
-                spawnRate = Mathf.Clamp(spawnRate,5,spawnRate);
+                spawnRate = Mathf.Clamp(spawnRate, 5, spawnRate);
             }
             StartCoroutine(Spawn());
         }
-
+        private void OnEnable()
+        {
+            StartCoroutine(Spawn());
+        }
         public void SpawnObjectOfType(Spawn spawn)
         {
             Spawn obj = pooler.GetTypeOfSpawn(spawn);

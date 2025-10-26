@@ -34,7 +34,13 @@ namespace SpawningAndEnemies
         {
           InstanceNewObject();
         }
-
+        private void Awake()
+        {
+           for(int i = 0;i < Spawns.Count;i++)
+            {
+                Spawns[i].gameObject.SetActive(false);
+            }
+        }
 
         public Spawn GetSpawnAtIndex(int index)
         {

@@ -16,12 +16,14 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private float HoopSpawnRate;
     [SerializeField] private int SpawnerAmount;
     [SerializeField] private float SpawnerPositionSpacing = 0.5f;
-     private List<Spawner> spawners = new List<Spawner>();
+    [SerializeField] private List<Spawner> spawners = new List<Spawner>();
     //Spawners Reference
     private void OnEnable()
     {
         var viewDistance = 25;
         Boundary = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, viewDistance));
+        LayoutSpawners();
+
     }
     public void InitializeLevelGenerator()
     {
@@ -34,9 +36,7 @@ public class LevelGenerator : MonoBehaviour
     }
     private void Start()
     {
-        
-            LayoutSpawners();
-        
+      
     }
     private void Update()
     {
@@ -75,7 +75,7 @@ public class LevelGenerator : MonoBehaviour
                 obj.GetComponent<ObjectPool>().SetOBjectToSpawn(Enemy);
                 spawners.Add(obj.GetComponent<Spawner>());
 
-                if(currentCount > maxCount)
+               if(spawners.Count > maxCount)
                 {
                     return;
                 }
@@ -106,7 +106,7 @@ public class LevelGenerator : MonoBehaviour
         spawners[randomChoice].spawnRate = spawnRate;
         spawners[randomChoice].SpawnObjectOfType(Enemy.GetComponent<Spawn>());
    
-        
+      
     }
 
     public void SetSpawnAsteroid()
