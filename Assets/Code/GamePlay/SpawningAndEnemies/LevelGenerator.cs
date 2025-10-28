@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
      private bool StartGame = false;
+    private Vector3 updatedOrigin;
     [SerializeField] private float MaxSpawnRate = 5;
     
     [SerializeField] private GameObject Hoop;
@@ -34,13 +35,9 @@ public class LevelGenerator : MonoBehaviour
     {
         StartGame = false;
     }
-    private void Start()
+    public void UpdatedOrigin(Vector3 position)
     {
-      
-    }
-    private void Update()
-    {
-        
+        updatedOrigin = position;
     }
     void LayoutSpawners()
     {
@@ -95,7 +92,10 @@ public class LevelGenerator : MonoBehaviour
         if (spawners[randomChoice].spawnRate != spawnRate)
         {
             spawners[randomChoice].spawnRate = spawnRate;
+            spawners[randomChoice].UpdatePosition(updatedOrigin);
             spawners[randomChoice].SpawnObjectOfType(Hoop.GetComponent<Spawn>());
+            //UpdatePosition
+            
         }
        // spawners[randomChoice].SpawnObject();
         
@@ -109,9 +109,11 @@ public class LevelGenerator : MonoBehaviour
         if (spawners[randomChoice].spawnRate != spawnRate)
         {
             spawners[randomChoice].spawnRate = spawnRate;
+            spawners[randomChoice].UpdatePosition(updatedOrigin);
             spawners[randomChoice].SpawnObjectOfType(Enemy.GetComponent<Spawn>());
+            //UpdatePosition
         }
-      
+
     }
 
     public void SetSpawnAsteroid()
@@ -122,10 +124,12 @@ public class LevelGenerator : MonoBehaviour
         if (spawners[randomChoice].spawnRate != spawnRate)
         {
             spawners[randomChoice].spawnRate = spawnRate;
+            spawners[randomChoice].UpdatePosition(updatedOrigin);
             spawners[randomChoice].SpawnObjectOfType(Asteroid.GetComponent<Spawn>());
+            //UpdatePosition
         }
-        
- 
+
+
     }
    
 

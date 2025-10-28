@@ -6,6 +6,10 @@ public class RigMover : MonoBehaviour
 
     private bool StartGame;
 
+    public void IncreaseSpeed()
+    {
+        MoveSpeed += 0.025f;
+    }
     public void InitRigMover()
     {
         StartGame = true;

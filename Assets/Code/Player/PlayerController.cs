@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     {
         mouseMove = value;
     }
+
+   
     private void ClampPosition(ref Vector3 target)
     {
       

@@ -7,8 +7,9 @@ namespace SpawningAndEnemies
         public float spawnRate;
         private ObjectPool pooler;
         private bool Fire;
+        private Vector3 updatedPosition;
         public ObjectPool Pooler {  get { return pooler; } }
-
+        
      
         private void Start()
         {
@@ -25,6 +26,11 @@ namespace SpawningAndEnemies
         {
             StartCoroutine(Spawn());
         }
+        public void UpdatePosition(Vector3 position)
+        {
+            Vector3 difference = transform.position - position;
+            updatedPosition =transform.position + difference ;
+        }
         public void SpawnObjectOfType(Spawn spawn)
         {
             Spawn obj = pooler.GetTypeOfSpawn(spawn);
@@ -33,7 +39,7 @@ namespace SpawningAndEnemies
             {
 
                 obj.gameObject.SetActive(true);
-                obj.transform.position = transform.position;
+                obj.transform.position = updatedPosition;
                 obj.transform.rotation = transform.rotation;
                 Fire = false;
             }
