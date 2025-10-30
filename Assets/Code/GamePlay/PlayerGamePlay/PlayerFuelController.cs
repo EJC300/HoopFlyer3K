@@ -1,14 +1,17 @@
 using Events;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerFuelController : MonoBehaviour
 {
     public float Fuel = 100;
     public FloatEventListener FuelListener;
     public VoidEventListener DeactivatePlayerListener;
+    public Slider FuelSlider;
     private void Update()
     {
         FuelDrain();
+        FuelSlider.value = Fuel;
         if (Fuel < 0)
         {
             Fuel = 0;
