@@ -1,8 +1,7 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class TimeScore : MonoBehaviour
+[System.Serializable]
+public class TimeScore 
 {
 
     public float seconds;
@@ -32,9 +31,9 @@ public class TimeScore : MonoBehaviour
         }
     }
 
-   public string TimeScoreString(string playerName)
+   public string TimeScoreString()
     {
-        return  $"Player Name {playerName} : Seconds {seconds} : Minutes {minutes} : Hours {hours} ";
+        return  $" Seconds {seconds} : Minutes {minutes} : Hours {hours} ";
     }
 
 
