@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 240185459}
   - component: {fileID: 240185461}
   - component: {fileID: 240185462}
+  - component: {fileID: 240185463}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -243,8 +244,144 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartGameListener: {fileID: 240185461}
+  DistanceMulitplierListener: {fileID: 0}
   SpawnEntities: {fileID: 1581646317}
   SpawnRate: 3
+--- !u!114 &240185463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240185458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed4683d6ff80534aa25c52f3a5068c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score:
+    seconds: 0
+    minutes: 0
+    hours: 0
+  player: {fileID: 0}
+--- !u!1 &378239877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 378239878}
+  - component: {fileID: 378239881}
+  - component: {fileID: 378239880}
+  - component: {fileID: 378239879}
+  m_Layer: 0
+  m_Name: DistanceTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &378239878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378239877}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 471750290}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &378239879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378239877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cb3b508fe190843846e35243640d24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voidEventChannel: {fileID: 11400000, guid: 0a76cd8513340954a993e3fd1b8d3b1e, type: 2}
+  OnEventRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1529143690529492624}
+        m_TargetAssemblyTypeName: RigMover, SpawningAndEnemies
+        m_MethodName: IncreaseSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 240185462}
+        m_TargetAssemblyTypeName: PlayerGamePlay.GameManager, PlayerGamePlay
+        m_MethodName: IncreaseSpawnRate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &378239880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378239877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6b23dde1943ad4cb9ad72095b8a20b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OriginChangeListener: {fileID: 378239881}
+  playerCamera: {fileID: 700297754}
+  distanceThreshold: 500
+--- !u!114 &378239881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378239877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583acd24405e1f444af035733cbdeb9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vector3EventChannel: {fileID: 11400000, guid: 04071376715c9814a9b672ab419e8e9c,
+    type: 2}
+  OnEventRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1581646316}
+        m_TargetAssemblyTypeName: LevelGenerator, SpawningAndEnemies
+        m_MethodName: UpdatedOrigin
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &379664242
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +620,7 @@ Transform:
   m_Children:
   - {fileID: 240185459}
   - {fileID: 1581646315}
+  - {fileID: 378239878}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &700297753
@@ -1504,7 +1642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Fuel: 100
   FuelListener: {fileID: 8128560114638711465}
-  DeactivatePlayerListener: {fileID: 0}
+  DeactivatePlayerListener: {fileID: 8128560114638711463}
 --- !u!114 &6317851741113535012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1761,6 +1899,18 @@ MonoBehaviour:
       - m_Target: {fileID: 700297755}
         m_TargetAssemblyTypeName: ChaseCamera, Assembly-CSharp
         m_MethodName: DisableCamera
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 240185463}
+        m_TargetAssemblyTypeName: ScoreManager, PlayerGamePlay
+        m_MethodName: DisplayTime
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
