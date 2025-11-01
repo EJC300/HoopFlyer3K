@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e58ef39113a64ca4c9764ebf5cdcfb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  husk: {fileID: 4201677371433397817, guid: 064315d0fbb0796429a4171f2fa05eb3, type: 3}
+  husk: {fileID: 7985699147323030480, guid: 22492b8449ef0dd42a3519b8c011cc85, type: 3}
 --- !u!54 &7083981303150662883
 Rigidbody:
   m_ObjectHideFlags: 0

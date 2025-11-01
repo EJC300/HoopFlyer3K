@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82744b731008d1f4a8bc6f1c1d614374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sparks: {fileID: 3894021321511135745, guid: 5da1113f19b62a247832fdb4bb898fe7, type: 3}
   canKillEnemy: 1
   Speed: 0.2
 --- !u!114 &-4593511723202699668
