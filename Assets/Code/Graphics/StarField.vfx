@@ -16,7 +16,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661614573}
-  m_UIPosition: {x: 705, y: -433}
+  m_UIPosition: {x: 705, y: -437}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -156,9 +156,9 @@ MonoBehaviour:
     position:
       serializedVersion: 2
       x: 679
-      y: -492
+      y: -495
       width: 476
-      height: 1467
+      height: 1777
     contents:
     - model: {fileID: 114023846229194376}
       id: 0
@@ -177,9 +177,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: 198
-    y: -492
+    y: -496
     width: 957
-    height: 1774
+    height: 1778
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,7 +242,7 @@ MonoBehaviour:
   particlePerStripCount: 16
   needsComputeBounds: 1
   boundsMode: 2
-  m_Space: 0
+  m_Space: 1
 --- !u!114 &114780028408030698
 MonoBehaviour:
   m_ObjectHideFlags: 1
