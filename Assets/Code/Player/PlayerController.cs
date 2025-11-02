@@ -28,7 +28,10 @@ public class PlayerController : MonoBehaviour
     {
         StartGame = true;
     }
-
+    public void DisablePlayer()
+    {
+        StartGame = false;
+    }
     private void OnMouseMove(Vector2 value)
     {
         mouseMove = value;

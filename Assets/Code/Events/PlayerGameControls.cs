@@ -10,6 +10,7 @@ namespace Input
     [CreateAssetMenu(fileName = "PlayerGameControls", menuName = "EventSOs/PlayerGameControls")]
     public class PlayerGameControls : ScriptableObject, PlayerInput.IMenusActions
     {
+        public PlayerInput playerInput;
         public UnityAction Progress = delegate { };
 
         public UnityAction Back = delegate { };
@@ -22,6 +23,30 @@ namespace Input
         public void OnProgress(InputAction.CallbackContext context)
         {
             Progress?.Invoke();
+        }
+
+        private void OnEnable()
+        {
+            if (playerInput == null)
+            {
+
+                playerInput = new PlayerInput();
+                playerInput.Enable();
+                playerInput.Menus.Back.performed += OnBack;
+
+
+            }
+
+
+
+        }
+
+        public void OnDisable()
+        {
+           
+            playerInput.Disable();
+            playerInput.Menus.Back.performed -= OnBack;
+
         }
     }
 }
