@@ -11,7 +11,7 @@ public class EnemyMover : MonoBehaviour
     private void Awake()
     {
         Vector3 offset = transform.position * Random.value * 25;
-        transform.position = offset;
+        transform.position = transform.position + offset;
         playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
