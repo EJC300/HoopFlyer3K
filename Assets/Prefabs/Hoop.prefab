@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8fdb7387227fb4295cec9d289377c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 450
+  MaxSpeed: 1200
 --- !u!114 &3969983782188948776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FuelAmount: 25
-  flash: {fileID: 0}
+  flash: {fileID: 3113526809508269923, guid: c008b02c64ff8614389c68d096aa30fd, type: 3}
 --- !u!54 &7819925277879717347
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class PlayerRefuel : MonoBehaviour
     {
         popSound = GetComponent<AudioSource>();
     }
+ 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -18,6 +19,7 @@ public class PlayerRefuel : MonoBehaviour
             if (!popSound.isPlaying)
             {
                 popSound.Play();
+                Instantiate(flash, other.transform.position, Quaternion.identity);
             }
             Transform obj = other.transform.parent.parent;
             if (obj != null && obj.TryGetComponent(out PlayerFuelController playerFuelController))
