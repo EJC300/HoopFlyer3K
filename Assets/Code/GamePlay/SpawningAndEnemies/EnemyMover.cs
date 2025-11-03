@@ -8,7 +8,7 @@ public class EnemyMover : MonoBehaviour
 
     private Transform playerTarget;
     
-    private void Awake()
+    private void OnEnable()
     {
         Vector3 offset = transform.position * Random.value * 25;
         transform.position = transform.position + offset;

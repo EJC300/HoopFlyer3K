@@ -35,7 +35,7 @@ namespace SpawningAndEnemies
         {
             Spawn obj = pooler.GetTypeOfSpawn(spawn);
           
-            if (obj != null && Fire)
+            if (obj != null && Fire && !obj.gameObject.activeInHierarchy)
             {
 
                 obj.gameObject.SetActive(true);
@@ -65,9 +65,11 @@ namespace SpawningAndEnemies
         {
             while (true)
             {
+                Fire = true;
+
                 yield return new WaitForSeconds(spawnRate);
 
-                Fire = true;
+             
             }
         }
 

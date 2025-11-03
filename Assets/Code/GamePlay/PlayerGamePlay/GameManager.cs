@@ -10,8 +10,8 @@ namespace PlayerGamePlay {
         public VoidEventListener StartGameListener;
         public VoidEventListener DistanceMulitplierListener;
         public VoidEventListener SpawnEntities;
-        
-        
+
+        public Transform title;
 
         [SerializeField] private float SpawnRate;
 
@@ -39,18 +39,23 @@ namespace PlayerGamePlay {
                 DistanceMulitplierListener.Respond();
             }
         }
-
+        public IEnumerator DeactivateTitle()
+        {
+            yield return new WaitForSeconds(5);
+            title.gameObject.SetActive(false);
+        }
         private void Start()
         {
             StartGameListener.Respond();
             StartCoroutine(SpawnEntityUpdate());
             StartCoroutine(DistanceMultiplier());
+            StartCoroutine(DeactivateTitle());
         }
         
         private void Update()
         {
 
-            
+           
             
             
         }

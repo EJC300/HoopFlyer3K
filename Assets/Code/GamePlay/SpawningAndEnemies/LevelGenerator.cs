@@ -45,8 +45,8 @@ public class LevelGenerator : MonoBehaviour
         float maxCount = 20;
         float currentCount = 0;
         Vector3 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width,Screen.height, viewDistance));
-        float totalWidth = (Boundary.x - 1) * SpawnerPositionSpacing * 0.1f;
-        float totalHeight = (Boundary.y - 1) * SpawnerPositionSpacing * 0.1f;
+        float totalWidth = (Boundary.x - 1) * SpawnerPositionSpacing * 0.5f;
+        float totalHeight = (Boundary.y - 1) * SpawnerPositionSpacing * 0.5f;
         float startX = ((screenBounds.x - totalWidth) / 2.0f);
         float startY =  ((screenBounds.y - totalWidth) / 2.0f);
         for (int i = 0; i < Boundary.x; i++)
@@ -65,11 +65,11 @@ public class LevelGenerator : MonoBehaviour
                 obj.transform.position = pos;
                 obj.AddComponent<Spawner>();
                 obj.AddComponent<ObjectPool>();
-                obj.GetComponent<ObjectPool>().SetOBjectToSpawn(Hoop);
+                obj.GetComponent<ObjectPool>().SetOBjectToSpawn(Enemy);
                 obj.GetComponent<ObjectPool>().InstanceNewObject();
                 obj.GetComponent<ObjectPool>().SetOBjectToSpawn(Asteroid);
                 obj.GetComponent<ObjectPool>().InstanceNewObject();
-                obj.GetComponent<ObjectPool>().SetOBjectToSpawn(Enemy);
+                obj.GetComponent<ObjectPool>().SetOBjectToSpawn(Hoop);
                 spawners.Add(obj.GetComponent<Spawner>());
 
                if(spawners.Count > maxCount)
@@ -106,6 +106,7 @@ public class LevelGenerator : MonoBehaviour
         int randomChoice = Random.Range(0, spawners.Count);
         float spawnRate = Random.value * EnemySpawnRate;
         spawnRate = Mathf.Clamp(spawnRate, EnemySpawnRate * 1.5f, EnemySpawnRate);
+      
         if (spawners[randomChoice].spawnRate != spawnRate)
         {
             spawners[randomChoice].spawnRate = spawnRate;
