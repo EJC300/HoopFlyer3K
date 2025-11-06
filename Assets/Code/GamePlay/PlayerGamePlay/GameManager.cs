@@ -17,7 +17,10 @@ namespace PlayerGamePlay {
 
         public void IncreaseSpawnRate()
         {
-            SpawnRate -= 0.1f;
+            if (SpawnRate > 0.5)
+            {
+                SpawnRate -= 0.1f;
+            }
         }
 
         public IEnumerator SpawnEntityUpdate()

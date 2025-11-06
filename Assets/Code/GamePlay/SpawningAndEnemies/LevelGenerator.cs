@@ -44,7 +44,7 @@ public class LevelGenerator : MonoBehaviour
     }
     void LayoutSpawners()
     {
-        float viewDistance = 150;
+        float viewDistance = Camera.main.transform.parent.position.z + 150;
         float maxCount = 200;
         float currentCount = 0;
         Vector3 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width,Screen.height, viewDistance)) * 0.5f;
