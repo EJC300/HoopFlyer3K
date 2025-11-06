@@ -18,8 +18,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 263
       y: 295
-      width: 475
-      height: 2220
+      width: 476
+      height: 2219
     contents:
     - model: {fileID: 8926484042661614700}
       id: 0

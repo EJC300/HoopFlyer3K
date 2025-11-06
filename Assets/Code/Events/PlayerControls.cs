@@ -20,7 +20,7 @@ namespace Events
         public UnityAction MouseEventFireCancled = delegate { };
 
         public UnityAction MouseEventBoost = delegate { };
-
+        public UnityAction MouseEventBoostCancel = delegate { };
         public void OnMouseBoost(InputAction.CallbackContext context)
         {
             if (context.performed)
@@ -28,7 +28,13 @@ namespace Events
                 MouseEventBoost.Invoke();
             }
         }
-
+        public void OnMouseBoostCanceled(InputAction.CallbackContext context)
+        {
+            if (context.canceled)
+            {
+                MouseEventBoost.Invoke();
+            }
+        }
 
         public void OnMouseFire(InputAction.CallbackContext context)
         {
@@ -72,6 +78,7 @@ namespace Events
                 playerInput.PlayerGameplay.MouseFire.performed += OnMouseFire;
                 playerInput.PlayerGameplay.MouseFire.canceled += OnMouseFireOff;
                 playerInput.PlayerGameplay.MouseMove.performed += OnMouseMove;
+                playerInput.PlayerGameplay.MouseBoost.performed += OnMouseBoost;
 
 
             }
@@ -85,6 +92,7 @@ namespace Events
             playerInput.PlayerGameplay.MouseFire.performed -= OnMouseFire;
             playerInput.PlayerGameplay.MouseFire.canceled -= OnMouseFireOff;
             playerInput.PlayerGameplay.MouseMove.performed -= OnMouseMove;
+            playerInput.PlayerGameplay.MouseBoost.performed -= OnMouseBoost;
             playerInput.Disable();
 
         }

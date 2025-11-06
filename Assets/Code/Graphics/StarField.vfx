@@ -156,9 +156,9 @@ MonoBehaviour:
     position:
       serializedVersion: 2
       x: 679
-      y: -495
+      y: -521
       width: 476
-      height: 1777
+      height: 1803
     contents:
     - model: {fileID: 114023846229194376}
       id: 0
@@ -177,9 +177,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: 198
-    y: -496
+    y: -521
     width: 957
-    height: 1778
+    height: 1803
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1

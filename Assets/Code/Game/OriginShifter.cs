@@ -12,6 +12,9 @@ public class OriginShifter : MonoBehaviour
     {
         if (playerCamera.transform.position.magnitude > distanceThreshold)
         {
+            Vector3 camPos = playerCamera.transform.position;
+            camPos.y = 0;
+
             for (int z = 0; z < SceneManager.sceneCount; z++)
             {
                 foreach (GameObject g in SceneManager.GetSceneAt(z).GetRootGameObjects())
@@ -28,7 +31,8 @@ public class OriginShifter : MonoBehaviour
 
                 trail.SetPositions(positions);
             }
-            OriginChangeListener.Respond(playerCamera.position);
+            Vector3 orgin = Vector3.zero - playerCamera.position;
+            OriginChangeListener.Respond(orgin);
         
         }
     }

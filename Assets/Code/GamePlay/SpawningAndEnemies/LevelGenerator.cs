@@ -2,6 +2,9 @@ using System.Collections;
 using SpawningAndEnemies;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
+using System.Drawing;
+using UnityEditor.Experimental.GraphView;
 
 public class LevelGenerator : MonoBehaviour
 {
@@ -16,7 +19,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private float EnemySpawnRate;
     [SerializeField] private float HoopSpawnRate;
     [SerializeField] private int SpawnerAmount;
-    [SerializeField] private float SpawnerPositionSpacing = 0.5f;
+    [SerializeField] private float SpawnerPositionSpacing = 5.5f;
     [SerializeField] private List<Spawner> spawners = new List<Spawner>();
     //Spawners Reference
     private void OnEnable()
@@ -42,25 +45,24 @@ public class LevelGenerator : MonoBehaviour
     void LayoutSpawners()
     {
         float viewDistance = 150;
-        float maxCount = 20;
+        float maxCount = 200;
         float currentCount = 0;
-        Vector3 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width,Screen.height, viewDistance));
-        float totalWidth = (Boundary.x - 1) * SpawnerPositionSpacing * 0.5f;
-        float totalHeight = (Boundary.y - 1) * SpawnerPositionSpacing * 0.5f;
-        float startX = ((screenBounds.x - totalWidth) / 2.0f);
-        float startY =  ((screenBounds.y - totalWidth) / 2.0f);
+        Vector3 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width,Screen.height, viewDistance)) * 0.5f;
+    
+
+       
         for (int i = 0; i < Boundary.x; i++)
         {
             for (int j = 0; j < Boundary.y; j++)
             {
                 currentCount++;
-                float posX =  startX + (i * SpawnerPositionSpacing);
-                float posY =  startY + (j * SpawnerPositionSpacing);
+                float posX =  (i) * 2;
+                float posY =   (j) * 2;
                
                 var pos =   new Vector3( posX, posY, viewDistance);
                 pos.z = viewDistance * 5;
-                pos.x = Random.Range(startX,totalWidth/2);
-                pos.y = Random.Range(startY, totalHeight / 2);
+               // pos.x = Random.Range(startX,totalWidth/2);
+               // pos.y = Random.Range(startY, totalHeight / 2);
                 var obj = new GameObject();
                 obj.transform.position = pos;
                 obj.AddComponent<Spawner>();

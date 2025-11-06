@@ -23,24 +23,25 @@ public class ChaseCamera : MonoBehaviour
     void ChaseCameraMove()
     {
 
-        var moveTarget = PlayerShip.position + target;
+        var moveTarget = PlayerShip.position +  target;
 
         //transform.position = QuasarMath.SmoothDamp(transform.position ,moveTarget,Time.deltaTime,CameraChaseSpeed);
         transform.position = moveTarget;
     }
     void LookAtCaret()
     {
-        
-        var lookAt = Quaternion.LookRotation(PlayerShip.position - transform.position,Vector3.up);
-        transform.rotation = lookAt;
+
+        var lookAt = Quaternion.FromToRotation(Player.position- transform.position,Player.forward);
+        //transform.GetChild(0).localRotation = lookAt;
     }
     
     private void LateUpdate()
     {
         if (StartGame && canChase && PlayerShip != null)
         {
-            ChaseCameraMove();
             LookAtCaret();
+            ChaseCameraMove();
+
         }
     }
 }
