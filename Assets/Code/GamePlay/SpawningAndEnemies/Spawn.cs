@@ -24,17 +24,19 @@ namespace SpawningAndEnemies
         {
             transform.position = startPos;
             transform.rotation = startRotation;
-            StopCoroutine(DeactivateByTime(deactivateTime));
+            
             
         }
 
         public IEnumerator DeactivateByTime(float delay)
         {
+            while (true)
+            {
+                yield return new WaitForSeconds(delay);
 
-            yield return new WaitForSeconds(delay);
+                gameObject.SetActive(false);
 
-            gameObject.SetActive(false);
-
+            }
         }
 
     }

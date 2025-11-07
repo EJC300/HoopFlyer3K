@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerRefuel : MonoBehaviour
+public class PlayerRefuelRepair : MonoBehaviour
 {
 
     public float FuelAmount;
@@ -25,6 +25,11 @@ public class PlayerRefuel : MonoBehaviour
             if (obj != null && obj.TryGetComponent(out PlayerFuelController playerFuelController))
             {
                 playerFuelController.FuelListener.Respond(FuelAmount);
+            }
+
+            if (obj != null && obj.TryGetComponent(out PlayerHealthController playerHealthController))
+            {
+               playerHealthController.Repair();
             }
         }
     }

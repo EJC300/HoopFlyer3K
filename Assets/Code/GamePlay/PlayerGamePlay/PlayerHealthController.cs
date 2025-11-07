@@ -7,6 +7,7 @@ public class PlayerHealthController : MonoBehaviour
     public Slider HealthSlider;
     public FloatEventListener DamageListener;
     public VoidEventListener DeactivatePlayerListener;
+    public CameraShake camera;
     private void Update()
     {
         HealthSlider.value = Health;
@@ -21,7 +22,15 @@ public class PlayerHealthController : MonoBehaviour
     public void Damage(float damage)
     {
         Health -= damage;
-     
-    }
+        camera.TriggerShake();
 
+    }
+    public void Repair()
+    {
+        if (Health < 100)
+        {
+            Health = 100;
+           
+        }
+    }
 }

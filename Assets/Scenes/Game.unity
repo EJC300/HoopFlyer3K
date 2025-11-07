@@ -2662,7 +2662,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 36.7
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -2837,7 +2837,7 @@ MonoBehaviour:
   EnemySpawnRate: 15
   HoopSpawnRate: 3
   SpawnerAmount: 8
-  SpawnerPositionSpacing: 12
+  SpawnerPositionSpacing: 5
   spawners: []
 --- !u!114 &1581646317
 MonoBehaviour:
