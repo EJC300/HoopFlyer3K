@@ -1,3 +1,4 @@
+using Microsoft.Win32.SafeHandles;
 using System.Collections;
 using UnityEngine;
 namespace SpawningAndEnemies
@@ -60,6 +61,14 @@ namespace SpawningAndEnemies
             }
 
 
+        }
+        public void UpdatePositionOnOrginShift()
+        {
+            Spawn obj = pooler.GetInActiveSpawn();
+            if(obj != null)
+            {
+                obj.transform.position = obj.transform.position - updatedPosition;
+            }
         }
         public IEnumerator Spawn()
         {

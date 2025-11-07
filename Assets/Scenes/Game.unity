@@ -926,18 +926,6 @@ MonoBehaviour:
   OnEventRaised:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1529143690529492624}
-        m_TargetAssemblyTypeName: RigMover, SpawningAndEnemies
-        m_MethodName: IncreaseSpeed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 240185462}
         m_TargetAssemblyTypeName: PlayerGamePlay.GameManager, PlayerGamePlay
         m_MethodName: IncreaseSpawnRate
@@ -963,7 +951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OriginChangeListener: {fileID: 378239881}
-  playerCamera: {fileID: 700297754}
+  playerCamera: {fileID: 2423371750103964497}
   distanceThreshold: 4000
 --- !u!114 &378239881
 MonoBehaviour:
@@ -1401,7 +1389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471750289}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1409,7 +1397,7 @@ Transform:
   - {fileID: 240185459}
   - {fileID: 1581646315}
   - {fileID: 378239878}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2423371750103964497}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &509389589
 GameObject:
@@ -2674,7 +2662,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 36.7
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -3055,6 +3043,7 @@ GameObject:
   - component: {fileID: 2094134365}
   - component: {fileID: 2094134367}
   - component: {fileID: 2094134366}
+  - component: {fileID: 2094134368}
   m_Layer: 0
   m_Name: StarField
   m_TagString: Untagged
@@ -3158,6 +3147,20 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
+--- !u!114 &2094134368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094134364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 852053ea355a451419d758c82cabc4e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 40
+  maxDistance: 50
 --- !u!1 &147027219977352588
 GameObject:
   m_ObjectHideFlags: 0
@@ -3406,6 +3409,7 @@ Transform:
   m_Children:
   - {fileID: 8128560114638711462}
   - {fileID: 2094134365}
+  - {fileID: 471750290}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2955506425727811476
@@ -3888,7 +3892,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 0.2
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -3906,8 +3910,8 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.38246113
-        value: 0.2041387
+        time: 0.25027424
+        value: 0.16445059
         inSlope: -0.8603881
         outSlope: -0.8603881
         tangentMode: 0
@@ -3915,8 +3919,8 @@ TrailRenderer:
         inWeight: 0.27760518
         outWeight: 0.20860794
       - serializedVersion: 3
-        time: 1
-        value: 0
+        time: 0.40515137
+        value: 0.01586914
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -4013,7 +4017,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 0.2
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -4031,8 +4035,8 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.38246113
-        value: 0.2041387
+        time: 0.25027424
+        value: 0.16445059
         inSlope: -0.8603881
         outSlope: -0.8603881
         tangentMode: 0
@@ -4040,8 +4044,8 @@ TrailRenderer:
         inWeight: 0.27760518
         outWeight: 0.20860794
       - serializedVersion: 3
-        time: 1
-        value: 0
+        time: 0.40515137
+        value: 0.01586914
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -4477,7 +4481,6 @@ SceneRoots:
   - {fileID: 379664243}
   - {fileID: 1258943834}
   - {fileID: 2423371750103964497}
-  - {fileID: 471750290}
   - {fileID: 1492589293}
   - {fileID: 1223845869}
   - {fileID: 700297754}

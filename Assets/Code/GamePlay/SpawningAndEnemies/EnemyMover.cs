@@ -4,14 +4,14 @@ public class EnemyMover : MonoBehaviour
 {
     public float speed = 1f;
 
-    public float maxDistance = 0.0f;
+    public float maxDistance = 50.0f;
 
     private Transform playerTarget;
     
     private void OnEnable()
     {
         Vector3 offset = transform.position * Random.value * 25;
-        transform.position = transform.position + offset;
+       // transform.position = transform.position + offset;
         playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -19,7 +19,7 @@ public class EnemyMover : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, playerTarget.position);
         float forwardFace = Vector3.Dot(( transform.position - playerTarget.position), playerTarget.forward);
-        if(distance > maxDistance && forwardFace > 0.0f )
+        if(distance < maxDistance && forwardFace > 0.0f )
         {
             transform.LookAt(playerTarget.position);
         }

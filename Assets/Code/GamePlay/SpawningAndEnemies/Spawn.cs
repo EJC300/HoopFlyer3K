@@ -7,8 +7,12 @@ namespace SpawningAndEnemies
         private Vector3 startPos;
         private Quaternion startRotation;
         [SerializeField] private float deactivateTime;
+        private float prevDeactivationTime;
 
-
+        private void Awake()
+        {
+            prevDeactivationTime = deactivateTime;
+        }
         public void OnEnable()
         {
             StartCoroutine(DeactivateByTime(deactivateTime));
@@ -20,6 +24,8 @@ namespace SpawningAndEnemies
         {
             transform.position = startPos;
             transform.rotation = startRotation;
+            StopCoroutine(DeactivateByTime(deactivateTime));
+            
         }
 
         public IEnumerator DeactivateByTime(float delay)

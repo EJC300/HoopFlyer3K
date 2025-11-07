@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 using System.Drawing;
-using UnityEditor.Experimental.GraphView;
+
 
 public class LevelGenerator : MonoBehaviour
 {
@@ -41,29 +41,35 @@ public class LevelGenerator : MonoBehaviour
     public void UpdatedOrigin(Vector3 position)
     {
         updatedOrigin = position;
+        foreach(Spawner spawner in spawners)
+        {
+            spawner.UpdatePositionOnOrginShift();
+        }
     }
     void LayoutSpawners()
     {
-        float viewDistance = Camera.main.transform.parent.position.z + 150;
+        float viewDistance = 500;
         float maxCount = 200;
         float currentCount = 0;
-        Vector3 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width,Screen.height, viewDistance)) * 0.5f;
-    
+        Vector3 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
 
+        float startX = Vector3.zero.z - Boundary.x;
+        float startY = Vector3.zero.y - Boundary.y;
        
         for (int i = 0; i < Boundary.x; i++)
         {
             for (int j = 0; j < Boundary.y; j++)
             {
                 currentCount++;
-                float posX =  (i) * 2;
-                float posY =   (j) * 2;
+                float posX = startX + (i * SpawnerPositionSpacing);
+                float posY = startY + (j * SpawnerPositionSpacing);
                
                 var pos =   new Vector3( posX, posY, viewDistance);
-                pos.z = viewDistance * 5;
+                pos.z = viewDistance;
                // pos.x = Random.Range(startX,totalWidth/2);
                // pos.y = Random.Range(startY, totalHeight / 2);
                 var obj = new GameObject();
+                obj.transform.parent = transform;
                 obj.transform.position = pos;
                 obj.AddComponent<Spawner>();
                 obj.AddComponent<ObjectPool>();
@@ -96,6 +102,7 @@ public class LevelGenerator : MonoBehaviour
             spawners[randomChoice].spawnRate = spawnRate;
             spawners[randomChoice].UpdatePosition(updatedOrigin);
             spawners[randomChoice].SpawnObjectOfType(Hoop.GetComponent<Spawn>());
+            
             //UpdatePosition
             
         }
@@ -106,7 +113,7 @@ public class LevelGenerator : MonoBehaviour
    public void SetSpawnEnemy()
     {
         int randomChoice = Random.Range(0, spawners.Count);
-        float spawnRate = Random.value * EnemySpawnRate;
+        float spawnRate = EnemySpawnRate;
         spawnRate = Mathf.Clamp(spawnRate, EnemySpawnRate * 1.5f, EnemySpawnRate);
       
         if (spawners[randomChoice].spawnRate != spawnRate)

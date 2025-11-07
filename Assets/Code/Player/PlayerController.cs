@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
     private void ClampPosition(ref Vector3 target)
     {
 
-        var minimum = 1f;
+        var minimum =25;
         var size = 0f;
         var clampedPos = target;
         clampedPos.x = Mathf.Clamp(target.x, -Boundary.x * minimum + size, Boundary.x * minimum - size);
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        var viewDistance = 150;
+        var viewDistance = 25;
         Boundary = new Vector3(Screen.width, Screen.height, viewDistance );
         Boundary = Camera.main.ScreenToWorldPoint(Boundary);
     }
