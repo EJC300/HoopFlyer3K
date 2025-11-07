@@ -1,14 +1,25 @@
+using UnityEditor;
 using UnityEngine;
 
 public class RigMover : MonoBehaviour
 {
-    [SerializeField] private float MoveSpeed;
+    public float MoveSpeed;
+    private float currentSpeed;
+    public float BoostSpeed;
 
     private bool StartGame;
 
+    public void Awake()
+    {
+        currentSpeed = MoveSpeed;
+    }
     public void IncreaseSpeed()
     {
-        MoveSpeed += 0.025f;
+       currentSpeed= BoostSpeed;
+    }
+    public void DecreaseSpeed()
+    {
+        currentSpeed= MoveSpeed;
     }
     public void InitRigMover()
     {
@@ -19,7 +30,8 @@ public class RigMover : MonoBehaviour
     {
         if (StartGame)
         {
-            transform.Translate(Vector3.forward * MoveSpeed * Time.deltaTime);
+
+            transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
         }
     }
 

@@ -32,7 +32,7 @@ namespace Events
         {
             if (context.canceled)
             {
-                MouseEventBoost.Invoke();
+                MouseEventBoostCancel.Invoke();
             }
         }
 
@@ -79,6 +79,7 @@ namespace Events
                 playerInput.PlayerGameplay.MouseFire.canceled += OnMouseFireOff;
                 playerInput.PlayerGameplay.MouseMove.performed += OnMouseMove;
                 playerInput.PlayerGameplay.MouseBoost.performed += OnMouseBoost;
+                playerInput.PlayerGameplay.MouseBoost.canceled += OnMouseBoostCanceled;
 
 
             }
@@ -93,6 +94,7 @@ namespace Events
             playerInput.PlayerGameplay.MouseFire.canceled -= OnMouseFireOff;
             playerInput.PlayerGameplay.MouseMove.performed -= OnMouseMove;
             playerInput.PlayerGameplay.MouseBoost.performed -= OnMouseBoost;
+            playerInput.PlayerGameplay.MouseBoost.canceled -= OnMouseBoostCanceled;
             playerInput.Disable();
 
         }

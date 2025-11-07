@@ -50,11 +50,13 @@ public class PlayerController : MonoBehaviour
 
     public void CancelBoost()
     {
-        
+        rigMover.DecreaseSpeed();
+        //return camera back
     }
     public void Boost()
     {
         rigMover.IncreaseSpeed();
+        //camera speed effect
     }
     private void ClampPosition(ref Vector3 target)
     {
