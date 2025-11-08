@@ -23,7 +23,11 @@ public class EnemyMover : MonoBehaviour
         {
             transform.LookAt(playerTarget.position);
         }
-        float speedMutliplier = Random.value;
+        else
+        {
+            transform.LookAt(transform.forward);
+        }
+            float speedMutliplier = Random.value;
         speedMutliplier = Mathf.Clamp(speedMutliplier,0.5f, 1f);
         transform.Translate(-transform.forward * speed * speedMutliplier);
     }

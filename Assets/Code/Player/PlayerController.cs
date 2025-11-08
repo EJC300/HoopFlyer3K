@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector3 Boundary;
 
     [SerializeField] private Transform player;
+    public PlayerFuelController FuelController;
 
     private bool StartGame = false;
 
@@ -52,16 +53,18 @@ public class PlayerController : MonoBehaviour
     {
         rigMover.DecreaseSpeed();
         //return camera back
+        FuelController.StopFuelDrainByBoost();
     }
     public void Boost()
     {
         rigMover.IncreaseSpeed();
         //camera speed effect
+        FuelController.FuelDrainByBoost();
     }
     private void ClampPosition(ref Vector3 target)
     {
 
-        var minimum =25;
+        var minimum =8;
         var size = 0f;
         var clampedPos = target;
         clampedPos.x = Mathf.Clamp(target.x, -Boundary.x * minimum + size, Boundary.x * minimum - size);

@@ -1667,6 +1667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 700297754}
   - component: {fileID: 700297755}
+  - component: {fileID: 700297756}
   m_Layer: 0
   m_Name: ---Camera
   m_TagString: Untagged
@@ -1707,6 +1708,20 @@ MonoBehaviour:
   CameraChaseSpeed: 1.2
   CameraLookSpeed: 2
   target: {x: 0, y: 1, z: -25}
+--- !u!114 &700297756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700297753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d96b644a9cd08b42bdd9fc8371b58ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 0.5
+  shakeMagnitude: 0.7
 --- !u!1 &1034870131
 GameObject:
   m_ObjectHideFlags: 0
@@ -3284,7 +3299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66a0cd9c4a02bd439c83891a3c3a324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerHusk: {fileID: 0}
+  PlayerHusk: {fileID: 645663247}
 --- !u!114 &677718681979766871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3394,6 +3409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 25
+  BoostSpeed: 300
 --- !u!4 &2423371750103964497
 Transform:
   m_ObjectHideFlags: 0
@@ -3785,8 +3801,9 @@ MonoBehaviour:
   AimCaret: {fileID: 379664243}
   Boundary: {x: 25, y: 25, z: 0}
   player: {fileID: 8128560114638711462}
-  drainFuelFromBoostListener: {fileID: 0}
-  rigMover: {fileID: 0}
+  FuelController: {fileID: 6317851741113535011}
+  drainFuelFromBoostListener: {fileID: 8128560114638711465}
+  rigMover: {fileID: 1529143690529492624}
 --- !u!114 &6317851741113535009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3847,6 +3864,7 @@ MonoBehaviour:
   HealthSlider: {fileID: 1570276009}
   DamageListener: {fileID: 677718681979766871}
   DeactivatePlayerListener: {fileID: 8128560114638711463}
+  camera: {fileID: 700297756}
 --- !u!96 &6646573152317665630
 TrailRenderer:
   serializedVersion: 3
@@ -4286,6 +4304,18 @@ MonoBehaviour:
       - m_Target: {fileID: 240185463}
         m_TargetAssemblyTypeName: ScoreManager, PlayerGamePlay
         m_MethodName: DisplayTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 677718681979766870}
+        m_TargetAssemblyTypeName: PlayerGamePlay.PlayerDestructor, PlayerGamePlay
+        m_MethodName: DisablePlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
