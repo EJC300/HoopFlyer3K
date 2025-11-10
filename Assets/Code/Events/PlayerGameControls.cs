@@ -15,6 +15,8 @@ namespace Input
 
         public UnityAction Back = delegate { };
 
+        public UnityAction Exit = delegate { };
+
         public void OnBack(InputAction.CallbackContext context)
         {
             Back?.Invoke();
@@ -33,6 +35,8 @@ namespace Input
                 playerInput = new PlayerInput();
                 playerInput.Enable();
                 playerInput.Menus.Back.performed += OnBack;
+                playerInput.Menus.ExitGame.performed += OnExitGame;
+                playerInput.Menus.Progress.performed += OnProgress;
 
 
             }
@@ -46,7 +50,14 @@ namespace Input
            
             playerInput.Disable();
             playerInput.Menus.Back.performed -= OnBack;
+            playerInput.Menus.ExitGame.performed -= OnExitGame;
+            playerInput.Menus.Progress.performed -= OnProgress;
 
+        }
+
+        public void OnExitGame(InputAction.CallbackContext context)
+        {
+           Exit?.Invoke();
         }
     }
 }

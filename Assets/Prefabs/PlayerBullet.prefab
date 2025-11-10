@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8689680383617357895}
   - component: {fileID: 3661445430475068016}
   - component: {fileID: 14439992903847481}
+  - component: {fileID: 8442956317215048374}
   m_Layer: 0
   m_Name: Body
   m_TagString: PlayerBullet
@@ -106,10 +107,23 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.62
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8442956317215048374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468288243225730743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ec08ff296850d45a30898c7ca3d394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 3376188281046393429}
 --- !u!1 &3376188281046393429
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400fc1569ea93fb4b850eba3997c822c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deactivateTime: 3
+  root: {fileID: 0}
 --- !u!54 &1178293917427975401
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -18,10 +18,12 @@ namespace PlayerGamePlay {
         private void OnEnable()
         {
             PlayerGameControls.Back += Restart;
+            PlayerGameControls.Exit += ExitGame;
         }
         private void OnDisable()
         {
             PlayerGameControls.Back -= Restart;
+            PlayerGameControls.Exit -= ExitGame;
         }
         public void Awake()
         {
@@ -37,10 +39,14 @@ namespace PlayerGamePlay {
         {
             restart = !restart;
         }
+        public void ExitGame()
+        {
+            Application.Quit();
+        }
         public void DisplayTime()
         {
             player.transform.gameObject.SetActive(true);
-            player.text = score.TimeScoreString() + "Play Again Press Left Mouse Button";
+            player.text = score.TimeScoreString() + "Play Again Press Enter";
         }
 
         //Since this is a web game I don't need to exit the game.

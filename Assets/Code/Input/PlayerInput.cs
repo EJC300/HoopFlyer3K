@@ -112,13 +112,22 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ExitGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""0c805673-81d6-4699-8498-c10a019c6756"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""6a4df825-08e7-43c9-81a1-4fa50ae474ae"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -136,6 +145,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Progress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa91f2bd-e4fb-4ce7-a45a-38b1ed33adae"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExitGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -151,6 +171,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
         m_Menus_Back = m_Menus.FindAction("Back", throwIfNotFound: true);
         m_Menus_Progress = m_Menus.FindAction("Progress", throwIfNotFound: true);
+        m_Menus_ExitGame = m_Menus.FindAction("ExitGame", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
@@ -282,12 +303,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private List<IMenusActions> m_MenusActionsCallbackInterfaces = new List<IMenusActions>();
     private readonly InputAction m_Menus_Back;
     private readonly InputAction m_Menus_Progress;
+    private readonly InputAction m_Menus_ExitGame;
     public struct MenusActions
     {
         private @PlayerInput m_Wrapper;
         public MenusActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Back => m_Wrapper.m_Menus_Back;
         public InputAction @Progress => m_Wrapper.m_Menus_Progress;
+        public InputAction @ExitGame => m_Wrapper.m_Menus_ExitGame;
         public InputActionMap Get() { return m_Wrapper.m_Menus; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -303,6 +326,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Progress.started += instance.OnProgress;
             @Progress.performed += instance.OnProgress;
             @Progress.canceled += instance.OnProgress;
+            @ExitGame.started += instance.OnExitGame;
+            @ExitGame.performed += instance.OnExitGame;
+            @ExitGame.canceled += instance.OnExitGame;
         }
 
         private void UnregisterCallbacks(IMenusActions instance)
@@ -313,6 +339,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Progress.started -= instance.OnProgress;
             @Progress.performed -= instance.OnProgress;
             @Progress.canceled -= instance.OnProgress;
+            @ExitGame.started -= instance.OnExitGame;
+            @ExitGame.performed -= instance.OnExitGame;
+            @ExitGame.canceled -= instance.OnExitGame;
         }
 
         public void RemoveCallbacks(IMenusActions instance)
@@ -340,5 +369,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     {
         void OnBack(InputAction.CallbackContext context);
         void OnProgress(InputAction.CallbackContext context);
+        void OnExitGame(InputAction.CallbackContext context);
     }
 }

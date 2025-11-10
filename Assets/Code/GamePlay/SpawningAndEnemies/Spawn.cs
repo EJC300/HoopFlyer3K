@@ -6,16 +6,17 @@ namespace SpawningAndEnemies
     {
         private Vector3 startPos;
         private Quaternion startRotation;
-        [SerializeField] private float deactivateTime;
-        private float prevDeactivationTime;
+       // [SerializeField] private float deactivateTime;
+        public GameObject root;
+        //private float prevDeactivationTime;
 
         private void Awake()
         {
-            prevDeactivationTime = deactivateTime;
+          //  prevDeactivationTime = deactivateTime;
         }
         public void OnEnable()
         {
-            StartCoroutine(DeactivateByTime(deactivateTime));
+            
             startPos = transform.position;
             startRotation = transform.rotation;
         }
@@ -27,7 +28,8 @@ namespace SpawningAndEnemies
             
             
         }
-
+      
+        /*
         public IEnumerator DeactivateByTime(float delay)
         {
             while (true)
@@ -38,6 +40,7 @@ namespace SpawningAndEnemies
 
             }
         }
+        */
 
     }
 }

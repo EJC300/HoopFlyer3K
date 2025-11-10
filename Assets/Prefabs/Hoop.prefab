@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400fc1569ea93fb4b850eba3997c822c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deactivateTime: 50
+  root: {fileID: 0}
 --- !u!114 &8155209904315847531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 5293624578847171166}
   - component: {fileID: 4792371368442456054}
   - component: {fileID: 4244180165959658985}
+  - component: {fileID: 1859744184406059101}
   m_Layer: 0
   m_Name: Hoop
   m_TagString: Untagged
@@ -309,3 +310,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.020000001, y: 0.020459956, z: 0.001673329}
   m_Center: {x: 0, y: 0.00022997663, z: -0.00044542836}
+--- !u!114 &1859744184406059101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270760786340706902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ec08ff296850d45a30898c7ca3d394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 2147283973532782450}
